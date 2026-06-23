@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { TranslationProvider } from './context/TranslationContext';
 import { NotificationProvider } from './context/NotificationContext';
 import Header from './components/Header';
@@ -41,7 +41,7 @@ function App() {
 const AppContentWithLocation = () => {
   const location = useLocation();
   const isDashboard = location.pathname === '/admin-dashboard';
-  const isLogin = location.pathname === '/admin-login';
+  const isLogin = location.pathname === '/admin-login' || location.pathname === '/login';
   const isMarketplaceDetail = location.pathname.startsWith('/marketplace/');
   const isMarketplaceInquiry = location.pathname.startsWith('/marketplace-inquiry/');
 
@@ -63,6 +63,7 @@ const AppContentWithLocation = () => {
         <Route path="/service/charter" element={<ServiceCharter />} />
         <Route path="/service/offshore" element={<ServiceOffshore />} />
         <Route path="/service/security" element={<ServiceSecurity />} />
+        <Route path="/login" element={<Navigate to="/admin-login" replace />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/team" element={<Team />} />
