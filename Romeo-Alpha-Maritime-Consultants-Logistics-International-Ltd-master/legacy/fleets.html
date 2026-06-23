@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <title>Our Fleets | Romeo Alpha Maritime</title>
+    <meta name="description"
+        content="Explore Romeo Alpha's modern and versatile fleet, designed for safety and efficiency in offshore support and global cargo transportation.">
+    <link rel="canonical" href="https://romeoalpha.com/fleets.html">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer_styles.css">
+    <link rel="stylesheet" href="fleets.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="translations.js" defer></script>
+</head>
+
+<body>
+
+
+    <div class="fleets-page" id="top-anchor">
+
+        <!-- Floating Notice Header -->
+        <div class="floating-notice">
+            <div class="notice-content">
+                <span class="notice-text" data-translate="Notice Welcome">Welcome to Romeo Alpha maritime consultancy &
+                    Logistics International
+                    Ltd</span>
+                <div class="close-icon-container">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 3L3 9M3 3L9 9" stroke="#6B82AC" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Site Header -->
+        <header class="main-header">
+            <!-- Left: Logo -->
+            <div class="header-left">
+                <a href="index.html">
+                    <img src="images/logo-alpha.jpg" alt="Company Logo" class="logo">
+                </a>
+            </div>
+
+            <!-- Center: Navigation (Desktop) -->
+            <nav class="header-center desktop-nav">
+                <a href="about.html" class="nav-link" data-translate="About us">About us</a>
+                <a href="fleets.html" class="nav-link" data-translate="Our fleets">Our fleets</a>
+                <a href="team.html" class="nav-link" data-translate="Our team">Our team</a>
+                <a href="careers.html" class="nav-link" data-translate="Careers">Careers</a>
+                <a href="contact.html" class="nav-link" data-translate="Contact us">Contact us</a>
+            </nav>
+
+            <!-- Right: CTA & Lang -->
+            <div class="header-right">
+                <div class="language-selector" id="language-selector">
+                    <div class="language-trigger">
+                        <!-- Globe Icon -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 12H22" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z"
+                                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span class="language-text" id="current-lang-text">EN</span>
+                    </div>
+                    <!-- Dropdown -->
+                    <div class="language-dropdown">
+                        <div class="lang-option" data-lang="en">English</div>
+                        <div class="lang-option" data-lang="es">Español</div>
+                        <div class="lang-option" data-lang="fr">Français</div>
+                        <div class="lang-option" data-lang="de">Deutsch</div>
+                        <div class="lang-option" data-lang="zh">中文 (Chinese)</div>
+                    </div>
+                </div>
+                <button class="btn-get-quotes desktop-cta" data-translate="Get Quotes">Get quotes</button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <!-- Hamburger Icon -->
+                <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21M3 6H21M3 18H21" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <!-- Close Icon (Hidden by default) -->
+                <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </header>
+
+        <!-- Mobile Menu Dropdown -->
+        <div class="mobile-menu-dropdown">
+            <nav class="mobile-nav">
+                <a href="about.html" class="nav-link">About us</a>
+                <a href="fleets.html" class="nav-link">Our fleets</a>
+                <a href="team.html" class="nav-link">Our team</a>
+                <a href="careers.html" class="nav-link">Careers</a>
+                <a href="contact.html" class="nav-link">Contact us</a>
+            </nav>
+            <div class="mobile-cta">
+                <button class="btn-get-quotes">Get quotes</button>
+            </div>
+        </div>
+
+        <!-- Fleets Hero -->
+        <section class="fleets-hero">
+            <div class="fleets-hero-content">
+                <h1 class="fleets-hero-title" data-translate="Fleets Hero Title">Our Global Fleet</h1>
+                <p class="fleets-hero-subtitle" data-translate="Fleets Hero Subtitle">A versatile and modern fleet
+                    designed for safety, efficiency, and global reach.</p>
+            </div>
+        </section>
+
+        <!-- Fleets Intro Section -->
+        <section class="fleets-intro-section">
+            <div class="intro-container">
+                <h2 class="section-title" data-translate="Fleet Overview Title">Fleet Overview</h2>
+                <p class="section-desc centered-desc" data-translate="Fleet Overview Desc">
+                    Romeo Alpha manages a diverse portfolio of vessels, ranging from large-scale cargo carriers to
+                    specialized offshore support units. Our commitment to maintenance excellence ensures high
+                    availability and operational reliability for our clients worldwide.
+                </p>
+
+                <div class="fleet-stats-row">
+                    <div class="fleet-stat-card">
+                        <span class="fs-number">150+</span>
+                        <span class="fs-text" data-translate="Total Vessels">Total Vessels</span>
+                    </div>
+                    <div class="fleet-stat-card">
+                        <span class="fs-number">12</span>
+                        <span class="fs-text" data-translate="Vessel Types">Vessel Types</span>
+                    </div>
+                    <div class="fleet-stat-card">
+                        <span class="fs-number">5.5yrs</span>
+                        <span class="fs-text" data-translate="Avg Age">Average Age</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fleet Categories & Grid -->
+        <section class="fleet-showcase-section">
+
+            <!-- Category 1: Offshore Support -->
+            <div class="fleet-category-block">
+                <div class="category-header">
+                    <h3 class="category-title" data-translate="Cat Offshore">Offshore Support Vessels</h3>
+                    <div class="category-line"></div>
+                </div>
+                <div class="fleet-grid">
+                    <!-- Vessel Card 1 -->
+                    <div class="vessel-card">
+                        <div class="vessel-img-wrapper">
+                            <img src="images/bottom-1.webp" alt="Offshore Supply Vessel" class="vessel-img">
+                            <div class="vessel-overlay">
+                                <button class="btn-view-spec" data-translate="View Spec">View Specs</button>
+                            </div>
+                        </div>
+                        <div class="vessel-info">
+                            <h4 class="vessel-name">Alpha Supplier 01</h4>
+                            <p class="vessel-type">Platform Supply Vessel (PSV)</p>
+                            <ul class="vessel-specs-list">
+                                <li><span>DWT:</span> 4,500t</li>
+                                <li><span>Deck Area:</span> 900m²</li>
+                                <li><span>Built:</span> 2022</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Vessel Card 2 -->
+                    <div class="vessel-card">
+                        <div class="vessel-img-wrapper">
+                            <img src="images/bottom-2.webp" alt="Anchor Handling Tug" class="vessel-img">
+                            <div class="vessel-overlay">
+                                <button class="btn-view-spec" data-translate="View Spec">View Specs</button>
+                            </div>
+                        </div>
+                        <div class="vessel-info">
+                            <h4 class="vessel-name">Alpha Anchor V</h4>
+                            <p class="vessel-type">Anchor Handling Tug (AHTS)</p>
+                            <ul class="vessel-specs-list">
+                                <li><span>Bollard Pull:</span> 150t</li>
+                                <li><span>Power:</span> 12,000 BHP</li>
+                                <li><span>Built:</span> 2020</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Vessel Card 3 -->
+                    <div class="vessel-card">
+                        <div class="vessel-img-wrapper">
+                            <img src="images/hero-v3.webp" alt="Fast Support Vessel" class="vessel-img">
+                            <div class="vessel-overlay">
+                                <button class="btn-view-spec" data-translate="View Spec">View Specs</button>
+                            </div>
+                        </div>
+                        <div class="vessel-info">
+                            <h4 class="vessel-name">Alpha Swift II</h4>
+                            <p class="vessel-type">Fast Prevention/Intervention</p>
+                            <ul class="vessel-specs-list">
+                                <li><span>Speed:</span> 35 knots</li>
+                                <li><span>Pax:</span> 60</li>
+                                <li><span>Built:</span> 2023</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Cargo & Tankers -->
+            <div class="fleet-category-block">
+                <div class="category-header">
+                    <h3 class="category-title" data-translate="Cat Cargo">Cargo & Tanker Fleet</h3>
+                    <div class="category-line"></div>
+                </div>
+                <div class="fleet-grid">
+                    <!-- Vessel Card 4 -->
+                    <div class="vessel-card">
+                        <div class="vessel-img-wrapper">
+                            <img src="images/ads-gallery-4.webp" alt="Container Ship" class="vessel-img">
+                            <div class="vessel-overlay">
+                                <button class="btn-view-spec" data-translate="View Spec">View Specs</button>
+                            </div>
+                        </div>
+                        <div class="vessel-info">
+                            <h4 class="vessel-name">Alpha Global X</h4>
+                            <p class="vessel-type">Container Carrier</p>
+                            <ul class="vessel-specs-list">
+                                <li><span>Capacity:</span> 12,000 TEU</li>
+                                <li><span>Length:</span> 366m</li>
+                                <li><span>Built:</span> 2019</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Vessel Card 5 -->
+                    <div class="vessel-card">
+                        <div class="vessel-img-wrapper">
+                            <img src="images/ads-gallery-3.webp" alt="Oil Tanker" class="vessel-img">
+                            <div class="vessel-overlay">
+                                <button class="btn-view-spec" data-translate="View Spec">View Specs</button>
+                            </div>
+                        </div>
+                        <div class="vessel-info">
+                            <h4 class="vessel-name">Alpha Energy III</h4>
+                            <p class="vessel-type">Crude Oil Tanker</p>
+                            <ul class="vessel-specs-list">
+                                <li><span>DWT:</span> 160,000t</li>
+                                <li><span>Draft:</span> 16m</li>
+                                <li><span>Built:</span> 2021</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Vessel Card 6 -->
+                    <div class="vessel-card">
+                        <div class="vessel-img-wrapper">
+                            <img src="images/ads-gallery-1.webp" alt="Bulk Carrier" class="vessel-img">
+                            <div class="vessel-overlay">
+                                <button class="btn-view-spec" data-translate="View Spec">View Specs</button>
+                            </div>
+                        </div>
+                        <div class="vessel-info">
+                            <h4 class="vessel-name">Alpha Bulk Pro</h4>
+                            <p class="vessel-type">Dry Bulk Carrier</p>
+                            <ul class="vessel-specs-list">
+                                <li><span>Capacity:</span> 82,000 DWT</li>
+                                <li><span>Holds:</span> 7</li>
+                                <li><span>Built:</span> 2018</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer-section">
+            <div class="footer-main-group" style="border-top: none;">
+                <div class="footer-col">
+                    <h3 data-translate="Footer Subscribe Heading">Subscribe to our newsletter</h3>
+                    <form class="footer-newsletter-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="Email" required>
+                            <button type="submit" data-translate="Footer Subscribe Btn">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="footer-social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61582132920070" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/romeoalphamaritime_/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/romeo-alpha-9b7936417" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col footer-col-middle">
+                    <h3 data-translate="Footer Business Heading">Doing Business Together</h3>
+                    <ul class="footer-services-list">
+                        <li><a href="index.html#services" data-translate="Footer Link What">What we do</a></li>
+                        <li><a href="fleets.html" data-translate="Footer Link Fleets">Our fleets</a></li>
+                        <li><a href="index.html#offshore" data-translate="Footer Link Offshore">Offshore services</a>
+                        </li>
+                        <li><a href="index.html#security" data-translate="Footer Link Security">Marine security</a></li>
+                        <li><a href="index.html#charter" data-translate="Footer Link Charter">Vessel charter &
+                                management</a></li>
+                        <li><a href="index.html#partnership" data-translate="Footer Link Partnership">Partnerships</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-middle">
+                    <h3 data-translate="Footer Know Heading">Get to know Us</h3>
+                    <ul class="footer-services-list">
+                        <li><a href="about.html" data-translate="Footer Link About">About Romeo Alpha</a></li>
+                        <li><a href="index.html#insights" data-translate="Footer Link News">News & Insights</a></li>
+                        <li><a href="careers.html" data-translate="Footer Link Careers">Careers</a></li>
+                        <li><a href="contact.html" data-translate="Footer Link Contact">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Scroll to Top Button -->
+            <a href="#top-anchor" class="scroll-top-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 19V5M5 12l7-7 7 7" />
+                </svg>
+                <span data-translate="Scroll Top">Top</span>
+            </a>
+
+            <div class="footer-secondary-group">
+                <span>Headquarters - +2348066184330 / +2348055769660 - info@romeoalphamaritime.com - Port Harcourt, Nigeria.</span>
+            </div>
+            <div class="copyright-group">
+                <span>&copy; 2026 Romeo Alpha Maritime Consultancy & Logistics International Ltd</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script Logic (Reused) -->
+    <script>
+        // Floating Notice
+        const noticeHeader = document.querySelector('.floating-notice');
+        const noticeCloseBtn = document.querySelector('.floating-notice .close-icon-container');
+        const mainHeader = document.querySelector('.main-header');
+        const fleetsPage = document.querySelector('.fleets-page');
+        const mobileMenu = document.querySelector('.mobile-menu-dropdown');
+
+        if (noticeCloseBtn) {
+            noticeCloseBtn.addEventListener('click', () => {
+                noticeHeader.style.display = 'none';
+                mainHeader.style.top = '0';
+                fleetsPage.style.paddingTop = '80px';
+                if (mobileMenu) mobileMenu.style.top = '80px';
+            });
+        }
+
+        // Mobile Menu
+        const toggleBtn = document.querySelector('.mobile-menu-toggle');
+        const hamburgerIcon = document.querySelector('.icon-hamburger');
+        const closeIcon = document.querySelector('.icon-close');
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('open');
+                if (mainHeader.style.top === '0px') {
+                    mobileMenu.style.top = '80px';
+                } else {
+                    mobileMenu.style.top = '128px';
+                }
+
+                if (isOpen) {
+                    hamburgerIcon.style.display = 'none';
+                    closeIcon.style.display = 'block';
+                } else {
+                    hamburgerIcon.style.display = 'block';
+                    closeIcon.style.display = 'none';
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mobileMenu && mobileMenu.classList.contains('open') &&
+                    !mobileMenu.contains(e.target) &&
+                    !toggleBtn.contains(e.target)) {
+
+                    mobileMenu.classList.remove('open');
+                    // Reset icons
+                    if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+                    if (closeIcon) closeIcon.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize (Logic handled by translations.js)
+        window.addEventListener('DOMContentLoaded', updateNavActiveState);
+
+        // --- NEW: Automated Nav Active State Logic ---
+        function updateNavActiveState() {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', updateNavActiveState);
+        // --- End of Nav Logic ---
+
+
+    </script>
+</body>
+
+</html>
+```

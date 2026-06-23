@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <title>Operations | Romeo Alpha Maritime</title>
+    <meta name="description"
+        content="Browse our professional maritime operations, including vessel chartering, offshore support, marine security, and logistics solutions.">
+    <link rel="canonical" href="https://romeoalpha.com/operations.html">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/footer_styles.css">
+    <link rel="stylesheet" href="css/operations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/translations.js" defer></script>
+</head>
+
+<body>
+
+    <div class="operations-page" id="top-anchor">
+
+        <!-- Floating Notice Header -->
+        <div class="floating-notice">
+            <div class="notice-content">
+                <span class="notice-text" data-translate="Notice Welcome">Welcome to Romeo Alpha maritime consultancy &
+                    Logistics International Ltd</span>
+                <div class="close-icon-container">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 3L3 9M3 3L9 9" stroke="#6B82AC" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Site Header -->
+        <header class="main-header">
+            <div class="header-left">
+                <a href="index.html">
+                    <img src="images/logo-alpha.jpg" alt="Company Logo" class="logo">
+                </a>
+            </div>
+            <nav class="header-center desktop-nav">
+                <a href="about.html" class="nav-link" data-translate="About us">About us</a>
+                <a href="fleets.html" class="nav-link" data-translate="Our fleets">Our fleets</a>
+                <a href="team.html" class="nav-link" data-translate="Our team">Our team</a>
+                <a href="careers.html" class="nav-link" data-translate="Careers">Careers</a>
+                <a href="contact.html" class="nav-link" data-translate="Contact us">Contact us</a>
+            </nav>
+            <div class="header-right">
+                <div class="language-selector" id="language-selector">
+                    <div class="language-trigger">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 12H22" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z"
+                                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span class="language-text" id="current-lang-text">EN</span>
+                    </div>
+                    <div class="language-dropdown">
+                        <div class="lang-option" data-lang="en">English</div>
+                        <div class="lang-option" data-lang="es">Español</div>
+                        <div class="lang-option" data-lang="fr">Français</div>
+                        <div class="lang-option" data-lang="de">Deutsch</div>
+                        <div class="lang-option" data-lang="zh">中文 (Chinese)</div>
+                    </div>
+                </div>
+                <button class="btn-get-quotes desktop-cta" data-translate="Get Quotes">Get quotes</button>
+            </div>
+            <div class="mobile-menu-toggle">
+                <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21M3 6H21M3 18H21" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </header>
+
+        <!-- Mobile Menu Dropdown -->
+        <div class="mobile-menu-dropdown">
+            <nav class="mobile-nav">
+                <a href="about.html" class="nav-link">About us</a>
+                <a href="fleets.html" class="nav-link">Our fleets</a>
+                <a href="team.html" class="nav-link">Our team</a>
+                <a href="careers.html" class="nav-link">Careers</a>
+                <a href="contact.html" class="nav-link">Contact us</a>
+            </nav>
+            <div class="mobile-cta">
+                <button class="btn-get-quotes">Get quotes</button>
+            </div>
+        </div>
+
+        <!-- Operations Hero / Search Section -->
+        <section class="operations-hero">
+            <div class="operations-container">
+                <h1 class="operations-title" data-translate="Operations Page Title">Our Operations</h1>
+                <p class="operations-subtitle" data-translate="Operations Page Subtitle">Explore our range of
+                    professional maritime and offshore services.</p>
+
+                <div class="search-box-container">
+                    <input type="text" id="operation-search" class="operation-search-input"
+                        placeholder="Search for a service..." data-translate-placeholder="Search Placeholder">
+                    <div class="search-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="category-tabs-container">
+                    <div class="category-tabs" id="category-tabs">
+                        <button class="category-tab active" data-category="all" data-translate="Category All">All
+                            Services</button>
+                        <button class="category-tab" data-category="offshore"
+                            data-translate="Category Offshore">Offshore Support</button>
+                        <button class="category-tab" data-category="logistics"
+                            data-translate="Category Logistics">Marine Logistics</button>
+                        <button class="category-tab" data-category="charter" data-translate="Category Charter">Vessel
+                            Charter</button>
+                        <button class="category-tab" data-category="port" data-translate="Category Port">Port & Coastal
+                            Services</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operations Grid -->
+        <section class="operations-grid-section">
+            <div class="operations-container">
+                <div class="operations-grid" id="operations-grid">
+                    <!-- Operation Cards will be populated here by JS -->
+                </div>
+                <div id="no-results" class="no-results" style="display: none;">
+                    <p data-translate="No Results">No operations found matching your search.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer-section">
+            <div class="footer-main-group" style="border-top: none;">
+                <div class="footer-col">
+                    <h3 data-translate="Footer Subscribe Heading">Subscribe to our newsletter</h3>
+                    <form class="footer-newsletter-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="Email" required>
+                            <button type="submit" data-translate="Footer Subscribe Btn">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="footer-social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61582132920070" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/romeoalphamaritime_/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/romeo-alpha-9b7936417" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col footer-col-middle">
+                    <h3 data-translate="Footer Business Heading">Doing Business Together</h3>
+                    <ul class="footer-services-list">
+                        <li><a href="index.html#services" data-translate="Footer Link What">What we do</a></li>
+                        <li><a href="fleets.html" data-translate="Footer Link Fleets">Our fleets</a></li>
+                        <li><a href="index.html#offshore" data-translate="Footer Link Offshore">Offshore services</a>
+                        </li>
+                        <li><a href="index.html#security" data-translate="Footer Link Security">Marine security</a></li>
+                        <li><a href="index.html#charter" data-translate="Footer Link Charter">Vessel charter &
+                                management</a></li>
+                        <li><a href="index.html#partnership" data-translate="Footer Link Partnership">Partnerships</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-middle">
+                    <h3 data-translate="Footer Know Heading">Get to know Us</h3>
+                    <ul class="footer-services-list">
+                        <li><a href="about.html" data-translate="Footer Link About">About Romeo Alpha</a></li>
+                        <li><a href="index.html#insights" data-translate="Footer Link News">News & Insights</a></li>
+                        <li><a href="careers.html" data-translate="Footer Link Careers">Careers</a></li>
+                        <li><a href="contact.html" data-translate="Footer Link Contact">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Scroll to Top Button -->
+            <a href="#top-anchor" class="scroll-top-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 19V5M5 12l7-7 7 7" />
+                </svg>
+                <span data-translate="Scroll Top">Top</span>
+            </a>
+
+            <div class="footer-secondary-group">
+                <span>Headquarters - +2348066184330 / +2348055769660 - info@romeoalphamaritime.com - Port Harcourt, Nigeria.</span>
+            </div>
+            <div class="copyright-group">
+                <span>&copy; 2026 Romeo Alpha Maritime Consultancy & Logistics International Ltd</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript for Operations Logic -->
+    <script>
+        const operationsData = [
+            {
+                id: 1,
+                category: 'offshore',
+                title: 'Anchor Handling',
+                description: 'Specialized vessels for anchor deployment, recovery, and rig moving operations in challenging offshore environments.',
+                longDescription: 'We specialize in providing high-performance vessels equipped for complex anchor handling, towing, and supply operations. Our expertise in rig moving ensures that deep-sea installations are handled with precision and safety. With a fleet of specialized Anchor Handling Tug Supply (AHTS) vessels, we deliver reliability in the most demanding maritime environments.',
+                image: 'images/ads-gallery-1.webp',
+                gallery: ['images/ads-gallery-1.webp', 'images/hero-v3.webp', 'images/bottom-3.webp', 'images/bottom-4.webp'],
+                tags: ['Support', 'Offshore', 'Rig Move'],
+                cta: 'Request Quote'
+            },
+            {
+                id: 2,
+                category: 'logistics',
+                title: 'Ocean Freight',
+                description: 'Global logistics solutions for bulky and heavy maritime cargo, ensuring safe delivery across international waters.',
+                longDescription: 'Our ocean freight services combine global reach with meticulous planning to ensure your bulky or heavy cargo reaches its destination safely and on time. We manage the entire logistics chain, from port-to-port transportation to specialized handling for oversized loads. Our commitment to excellence makes us a trusted partner for international maritime logistics.',
+                image: 'images/shipping-logistics.webp',
+                gallery: ['images/shipping-logistics.webp', 'images/bottom-1.webp', 'images/bottom-2.webp', 'images/ads-gallery-2.webp'],
+                tags: ['International', 'Cargo', 'Logistics'],
+                cta: 'Hire This Service'
+            },
+            {
+                id: 3,
+                category: 'charter',
+                title: 'Platform Supply Vessels',
+                description: 'Reliable charter options for platform supply vessels (PSV) to support offshore installations and drilling rigs.',
+                longDescription: 'We provide a versatile fleet of Platform Supply Vessels (PSV) designed to support offshore oil and gas platforms. Our vessels are capable of transporting a wide range of essential supplies, including fuel, water, and specialized equipment. With advanced positioning systems and experienced crews, we ensure seamless offshore logistics support.',
+                image: 'images/hero-v3.webp',
+                gallery: ['images/hero-v3.webp', 'images/ads-gallery-3.webp', 'images/bottom-2.webp', 'images/bottom-3.webp'],
+                tags: ['Charter', 'Supply', 'PSV'],
+                cta: 'Check Availability'
+            }
+        ];
+
+        const grid = document.getElementById('operations-grid');
+        const searchInput = document.getElementById('operation-search');
+        const tabs = document.querySelectorAll('.category-tab');
+        const noResults = document.getElementById('no-results');
+
+        let activeCategory = 'all';
+        let searchQuery = '';
+
+        function renderCards() {
+            grid.innerHTML = '';
+            const filtered = operationsData.filter(op => {
+                const matchesCategory = activeCategory === 'all' || op.category === activeCategory;
+                const matchesSearch = op.title.toLowerCase().includes(searchQuery) ||
+                    op.description.toLowerCase().includes(searchQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+                filtered.forEach(op => {
+                    const card = document.createElement('div');
+                    card.className = 'operation-card';
+                    card.innerHTML = `
+                        <div class="op-card-image">
+                            <img src="${op.image}" alt="${op.title}">
+                        </div>
+                        <div class="op-card-content">
+                            <h3 class="op-card-title">${op.title}</h3>
+                            <p class="op-card-desc">${op.description}</p>
+                            <div class="op-card-tags">
+                                ${op.tags.map(tag => `<span class="op-tag">${tag}</span>`).join('')}
+                            </div>
+                            <a href="operation-detail.html?id=${op.id}" class="op-card-cta-link" style="text-decoration: none; width: 100%;">
+                                <button class="op-card-cta">${op.cta}</button>
+                            </a>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                activeCategory = tab.dataset.category;
+                renderCards();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase();
+            renderCards();
+        });
+
+        window.addEventListener('DOMContentLoaded', renderCards);
+
+        // Initialize (Logic handled by translations.js)
+        window.addEventListener('DOMContentLoaded', updateNavActiveState);
+    </script>
+</body>
+
+</html>
