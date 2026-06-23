@@ -1,0 +1,9 @@
+[build]
+  base = "Romeo-Alpha-Maritime-Consultants-Logistics-International-Ltd-master"
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
