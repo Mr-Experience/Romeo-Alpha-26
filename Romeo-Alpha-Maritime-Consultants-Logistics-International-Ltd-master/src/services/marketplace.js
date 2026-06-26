@@ -15,7 +15,7 @@ const getMockData = () => {
                 description: 'High-capacity cargo container vessel in excellent operational condition. Equipped with modern navigation systems, efficient propulsion, and certified cargo holds. Fully vetted and ready for international transit.',
                 gallery: ['/images/ads-gallery-1.webp', '/images/ads-gallery-2.webp'],
                 price: '1250000',
-                position: 'Immediate',
+                location: 'Immediate',
                 created_at: new Date(Date.now() - 36000000).toISOString(),
                 is_active: true
             },
@@ -26,7 +26,7 @@ const getMockData = () => {
                 description: 'Fast marine security escort vessel equipped with radar, defense communication systems, and high-speed twin diesel engines. Ideal for offshore support, crew changes, and naval patrol duties.',
                 gallery: ['/images/security-escort.webp', '/images/security-patrol.webp'],
                 price: '780000',
-                position: 'Immediate',
+                location: 'Immediate',
                 created_at: new Date(Date.now() - 72000000).toISOString(),
                 is_active: true
             },
@@ -37,7 +37,7 @@ const getMockData = () => {
                 description: 'High-bollard pull tugboat suitable for offshore oil rig towing, positioning, and supply logistics. Features robust winch systems, fire-fighting monitors, and ample deck space.',
                 gallery: ['/images/ads-gallery-2.webp', '/images/ads-gallery-3.webp'],
                 price: '15000',
-                position: 'In 2 weeks',
+                location: 'In 2 weeks',
                 created_at: new Date(Date.now() - 172800000).toISOString(),
                 is_active: true
             },
@@ -48,7 +48,7 @@ const getMockData = () => {
                 description: 'Decommissioned heavy steel bulk carrier hull ready for dismantling and recycling. Offers high-grade marine steel plating and structures. Available for towing to shipyard.',
                 gallery: ['/images/ads-gallery-3.webp'],
                 price: '45000',
-                position: 'Immediate',
+                location: 'Immediate',
                 created_at: new Date(Date.now() - 259200000).toISOString(),
                 is_active: true
             }

@@ -22,4 +22,7 @@ temp/
 node_modules/
 
 dist/
- 
+
+# Large or temporary files
+new_codes.zip
+build_log.txt

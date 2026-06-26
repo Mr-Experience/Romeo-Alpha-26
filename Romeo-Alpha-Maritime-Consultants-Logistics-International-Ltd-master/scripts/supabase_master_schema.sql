@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS public.marketplace_items (
     description TEXT,
     category TEXT NOT NULL CHECK (category IN ('sale', 'hire', 'repair', 'scrap')),
     price TEXT,
-    position TEXT,
+    location TEXT,
     gallery TEXT[] DEFAULT '{}',
     specs jsonb,
     is_active BOOLEAN DEFAULT true,

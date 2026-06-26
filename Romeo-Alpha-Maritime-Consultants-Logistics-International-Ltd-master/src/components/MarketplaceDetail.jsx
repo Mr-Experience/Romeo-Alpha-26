@@ -62,7 +62,7 @@ const MarketplaceDetail = () => {
                     gallery: gallery,
                     badges: di.category === 'sale' ? [t('Marketplace Available'), t('Tag Marketplace')] : [t('Marketplace Featured')],
                     price: di.price ? formatPrice(di.price) : null,
-                    position: di.position
+                    location: di.location
                 };
             });
 
@@ -241,8 +241,8 @@ const MarketplaceDetail = () => {
                                 <h3 className="detail-subheading">{t('Key Specifications')}</h3>
                                 <div className="specs-flat-list">
                                     <div className="spec-flat-item">
-                                        <span className="spec-label">{t('Label Position')}</span>
-                                        <span className="spec-value">{item.position}</span>
+                                        <span className="spec-label">{t('Label Location')}</span>
+                                        <span className="spec-value">{item.location}</span>
                                     </div>
                                 </div>
                             </div>

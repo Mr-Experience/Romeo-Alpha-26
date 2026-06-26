@@ -33,7 +33,7 @@ const AdminDashboard = () => {
         description: '',
         category: 'sale',
         price: '',
-        position: ''
+        location: ''
     });
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [editingMarketItem, setEditingMarketItem] = useState(null);
@@ -645,13 +645,13 @@ const AdminDashboard = () => {
                                             </div>
                                         </div>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                            <label style={{ fontSize: '14px', fontWeight: '600', color: '#6B82AC' }}>Position</label>
+                                            <label style={{ fontSize: '14px', fontWeight: '600', color: '#6B82AC' }}>Location</label>
                                             <input
                                                 type="text"
                                                 placeholder="e.g. Offshore, Port Harcourt, Atlantic"
                                                 style={{ padding: '10px', borderRadius: '6px', border: '1px solid #ddd' }}
-                                                value={newItem.position}
-                                                onChange={(e) => setNewItem({ ...newItem, position: e.target.value })}
+                                                value={newItem.location}
+                                                onChange={(e) => setNewItem({ ...newItem, location: e.target.value })}
                                             />
                                         </div>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -718,7 +718,7 @@ const AdminDashboard = () => {
                                                         description: newItem.description,
                                                         category: newItem.category,
                                                         price: combinedPrice,
-                                                        position: newItem.position,
+                                                        location: newItem.location,
                                                         gallery: imageUrls.length > 0 ? imageUrls : (editingMarketItem?.gallery || [])
                                                     };
 
@@ -737,7 +737,7 @@ const AdminDashboard = () => {
                                                         description: '',
                                                         category: 'sale',
                                                         price: '',
-                                                        position: ''
+                                                        location: ''
                                                     });
                                                     setSelectedCurrency('$');
                                                     setSelectedFiles([]);
@@ -763,7 +763,7 @@ const AdminDashboard = () => {
                                                     description: '',
                                                     category: 'sale',
                                                     price: '',
-                                                    position: ''
+                                                    location: ''
                                                 });
                                                 setSelectedCurrency('$');
                                                 setSelectedFiles([]);
@@ -887,7 +887,7 @@ const AdminDashboard = () => {
                                                                                 description: item.description,
                                                                                 category: item.category,
                                                                                 price: parsedPrice,
-                                                                                position: item.position
+                                                                                location: item.location
                                                                             });
                                                                             setShowAddItem(true);
                                                                             window.scrollTo({ top: 0, behavior: 'smooth' });
