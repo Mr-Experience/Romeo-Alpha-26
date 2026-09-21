@@ -1,0 +1,14 @@
+[build]
+  base = "Romeo-Alpha-Maritime-Consultants-Logistics-International-Ltd-master"
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/login"
+  to = "/admin-login"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

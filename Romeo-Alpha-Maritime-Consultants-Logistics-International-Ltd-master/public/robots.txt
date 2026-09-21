@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+Disallow: /admin-dashboard
+Disallow: /admin-login
+
+# Explicit AI crawler allowances
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://romeoalphamaritime.com/sitemap.xml

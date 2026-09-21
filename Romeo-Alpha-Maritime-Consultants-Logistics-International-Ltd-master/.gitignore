@@ -1,0 +1,28 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.log
+tmp/
+temp/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+node_modules/
+
+dist/
+
+# Large or temporary files
+new_codes.zip
+build_log.txt

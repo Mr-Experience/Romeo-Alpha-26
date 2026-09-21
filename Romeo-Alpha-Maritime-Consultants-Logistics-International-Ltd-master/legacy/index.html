@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <title>Home | Romeo Alpha Maritime</title>
+    <meta name="description"
+        content="Romeo Alpha Maritime Consultancy & Logistics International Ltd provides safe and reliable shipping, marine security escort, and offshore oil and gas support across coastal and international waters.">
+    <meta name="keywords"
+        content="maritime consultancy, shipping logistics, marine security, offshore support, vessel management, Nigeria maritime">
+    <link rel="canonical" href="https://romeoalpha.com/">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Romeo Alpha Maritime Consultancy & Logistics International Ltd",
+      "url": "https://romeoalpha.com/",
+      "logo": "https://romeoalpha.com/images/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+2348066184330 / +2348055769660",
+        "contactType": "customer service",
+        "areaServed": "Global",
+        "availableLanguage": ["en", "es", "fr"]
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/romeo-alpha-maritime"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://romeoalpha.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://romeoalpha.com/operations.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer_styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="translations.js" defer></script>
+</head>
+
+<body>
+
+
+    <!-- Main Wrapper constrained to 1440px -->
+    <div class="page-wrapper">
+
+        <div class="landing-page" id="top-anchor">
+
+            <!-- Floating Notice Header -->
+            <div class="floating-notice">
+                <div class="notice-content">
+                    <span class="notice-text" data-translate="Notice Welcome">Welcome to Romeo Alpha maritime
+                        consultancy &
+                        Logistics International
+                        Ltd</span>
+                    <div class="close-icon-container">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 3L3 9M3 3L9 9" stroke="#6B82AC" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Site Header -->
+            <header class="main-header">
+                <!-- Left: Logo -->
+                <div class="header-left">
+                    <img src="images/logo-alpha.jpg" alt="Company Logo" class="logo">
+                </div>
+
+                <!-- Center: Navigation (Desktop) -->
+                <nav class="header-center desktop-nav">
+                    <a href="about.html" class="nav-link" data-translate="About us">About us</a>
+                    <a href="fleets.html" class="nav-link" data-translate="Our fleets">Our fleets</a>
+                    <a href="team.html" class="nav-link" data-translate="Our team">Our team</a>
+                    <a href="careers.html" class="nav-link" data-translate="Careers">Careers</a>
+                    <a href="contact.html" class="nav-link" data-translate="Contact us">Contact us</a>
+                </nav>
+
+                <!-- Right: CTA & Lang -->
+                <div class="header-right">
+                    <div class="language-selector" id="language-selector">
+                        <div class="language-trigger">
+                            <!-- Globe Icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 12H22" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="language-text" id="current-lang-text">EN</span>
+                        </div>
+                        <!-- Dropdown -->
+                        <div class="language-dropdown">
+                            <div class="lang-option" data-lang="en">English</div>
+                            <div class="lang-option" data-lang="es">Español</div>
+                            <div class="lang-option" data-lang="fr">Français</div>
+                            <div class="lang-option" data-lang="de">Deutsch</div>
+                            <div class="lang-option" data-lang="zh">中文 (Chinese)</div>
+                        </div>
+                    </div>
+                    <button class="btn-get-quotes desktop-cta" data-translate="Get Quotes">Get quotes</button>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="mobile-menu-toggle">
+                    <!-- Hamburger Icon -->
+                    <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <!-- Close Icon (Hidden by default) -->
+                    <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </header>
+
+            <!-- Mobile Menu Dropdown -->
+            <div class="mobile-menu-dropdown">
+                <nav class="mobile-nav">
+                    <a href="about.html" class="nav-link">About us</a>
+                    <a href="fleets.html" class="nav-link">Our fleets</a>
+                    <a href="team.html" class="nav-link">Our team</a>
+                    <a href="careers.html" class="nav-link">Careers</a>
+                    <a href="contact.html" class="nav-link">Contact us</a>
+                </nav>
+                <div class="mobile-cta">
+                    <button class="btn-get-quotes">Get quotes</button>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <section class="hero-section">
+
+                <!-- Hero Image Group -->
+                <div class="hero-image-container">
+                    <img src="images/hero-v3.webp" alt="Maritime Operations" class="hero-image">
+                    <div class="hero-overlay"></div> <!-- New Overlay -->
+                </div>
+
+                <!-- Hero Text Group -->
+
+                <div class="hero-text-group">
+                    <h1 class="hero-heading" data-translate="Hero Heading">Powering Marine Transportation & Offshore
+                        Operations</h1>
+                    <p class="hero-subheading" data-translate="Hero Subheading">Delivering safe, reliable sea
+                        transportation, marine security escort
+                        services, and offshore oil & gas support across coastal and international waters</p>
+                    <a href="operations.html" class="hero-cta" data-translate="Browse Operations">Browse our
+                        operations</a>
+                </div>
+
+            </section>
+
+            <!-- New Content Section -->
+            <section class="content-section">
+                <div class="content-stack">
+                    <div class="content-upper">
+                        <!-- Left: Text Group -->
+                        <div class="upper-text-group">
+                            <h2 class="upper-heading" data-translate="Content Heading">Our Shipping & Logistics
+                                Solutions
+                                for your every needs</h2>
+                            <p class="upper-subtext" data-translate="Content Subtext">We provide integrated marine
+                                transportation and offshore support
+                                services across coastal and international waters. From cargo and petroleum transport to
+                                vessel management and marine security, we deliver safe, efficient, and reliable maritime
+                                solutions built on expertise and long-term partnerships.</p>
+                        </div>
+
+                        <!-- Right: Image Placeholder -->
+                        <div class="upper-image-placeholder">
+                            <img src="images/shipping-logistics.webp" alt="Shipping and Logistics" class="content-image">
+                            <div class="image-shadow"></div>
+                            <div class="image-overlay-text" data-translate="Overlay Maritime">Maritime
+                                Transportation<br>and
+                                Operation</div>
+                            <a href="operation-detail.html?id=2" class="overlay-button-link">
+                                <button class="overlay-button" data-translate="Explore Service">Explore Service</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content-lower">
+                        <div class="lower-image-container">
+                            <img src="images/bottom-1.webp" alt="Gallery Image 1" class="lower-content-image">
+                            <div class="image-shadow"></div>
+                            <div class="image-overlay-text" data-translate="Overlay Charter">Vessel Charter
+                                &<br>Management
+                            </div>
+                            <a href="operation-detail.html?id=3" class="overlay-button-link">
+                                <button class="overlay-button" data-translate="Explore Service">Explore Service</button>
+                            </a>
+                        </div>
+                        <div class="lower-image-container">
+                            <img src="images/bottom-2.webp" alt="Gallery Image 2" class="lower-content-image">
+                            <div class="image-shadow"></div>
+                            <div class="image-overlay-text" data-translate="Overlay Offshore">Offshore &
+                                Oilfield<br>Support
+                            </div>
+                            <a href="operation-detail.html?id=1" class="overlay-button-link">
+                                <button class="overlay-button" data-translate="Explore Service">Explore Service</button>
+                            </a>
+                        </div>
+                        <div class="lower-image-container">
+                            <img src="images/bottom-3.webp" alt="Gallery Image 3" class="lower-content-image">
+                            <div class="image-shadow"></div>
+                            <div class="image-overlay-text" data-translate="Overlay Security">Marine Security<br>Escort
+                            </div>
+                            <a href="operation-detail.html?id=4" class="overlay-button-link">
+                                <button class="overlay-button" data-translate="Explore Service">Explore Service</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Services Section -->
+            <section class="our-services-section">
+                <div class="services-header">
+                    <h2 class="services-heading" data-translate="Services Heading">Our Services</h2>
+                    <p class="services-subheading" data-translate="Services Subheading">We deliver comprehensive
+                        maritime, offshore, and logistics solutions
+                        tailored to the needs of vessel owners and operators.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service Card 1 -->
+                    <div class="service-card">
+                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#6B82AC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
+                        <h3 class="service-title" data-translate="Service 1 Title">Ship Management</h3>
+                        <p class="service-description" data-translate="Service 1 Desc">Our target is to provide
+                            competent, safe, and cost-effective
+                            services based on client-specific requirements.</p>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="service-card">
+                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#6B82AC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                        <h3 class="service-title" data-translate="Service 2 Title">Vessel Survey & Inspections</h3>
+                        <p class="service-description" data-translate="Service 2 Desc">We take the time to understand
+                            our customers' needs and put the
+                            right people on the job.</p>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="service-card">
+                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#6B82AC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                            <polyline points="7.5 4.21 12 6.81 16.5 4.21" />
+                            <polyline points="7.5 19.79 7.5 14.6 3 12" />
+                            <polyline points="21 12 16.5 14.6 16.5 19.79" />
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                            <line x1="12" y1="22.08" x2="12" y2="12" />
+                        </svg>
+                        <h3 class="service-title" data-translate="Service 3 Title">Brokerage Services</h3>
+                        <p class="service-description" data-translate="Service 3 Desc">Our ship brokerage arm has proven
+                            track records of providing an
+                            unrivalled level of service for ship owners.</p>
+                    </div>
+
+                    <!-- Service Card 4 -->
+                    <div class="service-card">
+                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#6B82AC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="10" rx="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            <line x1="12" y1="16" x2="12" y2="18" />
+                        </svg>
+                        <h3 class="service-title" data-translate="Service 4 Title">Chartering</h3>
+                        <p class="service-description" data-translate="Service 4 Desc">Our vessel chartering team can
+                            find the precise vessel, in the
+                            exact position, and at the correct time to fulfill destination needs.</p>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="service-card">
+                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#6B82AC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                        <h3 class="service-title" data-translate="Service 5 Title">Sales of Scrap Vessels</h3>
+                        <p class="service-description" data-translate="Service 5 Desc">Our extensive knowledge and track
+                            record in the local and
+                            international scrap market make us the ideal sales representation.</p>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="service-card">
+                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#6B82AC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        <h3 class="service-title" data-translate="Service 6 Title">Crewing</h3>
+                        <p class="service-description" data-translate="Service 6 Desc">We provide suitably qualified
+                            crew for vessels in accordance with
+                            current standards and international conventions.</p>
+                    </div>
+
+                    <!-- Service Card 7 -->
+                    <div class="service-card">
+                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#6B82AC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                        <h3 class="service-title" data-translate="Service 7 Title">Bunkering</h3>
+                        <p class="service-description" data-translate="Service 7 Desc">Our company has the requisite
+                            capacity to offer marine fueling
+                            and bunkering at major ports.</p>
+                    </div>
+
+                    <!-- Service Card 8 -->
+                    <div class="service-card">
+                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#6B82AC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3v18h18" />
+                            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" />
+                        </svg>
+                        <h3 class="service-title" data-translate="Service 8 Title">Project Management and Operations
+                        </h3>
+                        <p class="service-description" data-translate="Service 8 Desc">We ensure projects are handled
+                            through a structured approach with
+                            appropriate resources, tools, and equipment.</p>
+                    </div>
+
+                    <!-- Service Card 9 -->
+                    <div class="service-card">
+                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#6B82AC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg>
+                        <h3 class="service-title" data-translate="Service 9 Title">Marine Security</h3>
+                        <p class="service-description" data-translate="Service 9 Desc">Romeo Alpha provides
+                            comprehensive maritime security solutions,
+                            including vessel escort, armed guards, and risk assessment.</p>
+                    </div>
+
+                    <!-- Service Card 10 -->
+                    <div class="service-card">
+                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="#6B82AC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <h3 class="service-title" data-translate="Service 10 Title">General Marine</h3>
+                        <p class="service-description" data-translate="Service 10 Desc">Our General Marine Services aim
+                            to provide safe, efficient, and
+                            reliable maritime solutions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Romeo Alpha Section -->
+            <section class="benefit-section">
+                <div class="benefit-header">
+                    <h2 class="benefit-heading" data-translate="Why Romeo Alpha">Why Romeo Alpha?</h2>
+                    <p class="benefit-subtext" data-translate="Why Subtext">We deliver dependable maritime and offshore
+                        solutions built on experience,
+                        safety, and long-term partnerships.</p>
+                </div>
+                <div class="benefit-grid">
+                    <!-- Benefit 1 -->
+                    <div class="benefit-card">
+                        <!-- Icon placeholder could go here -->
+                        <h3 class="benefit-title" data-translate="Benefit 1 Title">Proven Maritime Expertise</h3>
+                        <p class="benefit-desc" data-translate="Benefit 1 Desc">Our operations are led by experienced
+                            maritime professionals with deep
+                            knowledge of marine transportation, offshore logistics, and vessel operations across diverse
+                            environments.</p>
+                    </div>
+                    <!-- Benefit 2 -->
+                    <div class="benefit-card">
+                        <h3 class="benefit-title" data-translate="Benefit 2 Title">Reliable & Safe Operations</h3>
+                        <p class="benefit-desc" data-translate="Benefit 2 Desc">Safety and reliability are at the core
+                            of
+                            everything we do. We operate in
+                            full compliance with international maritime standards to protect assets, crew, and cargo.
+                        </p>
+                    </div>
+                    <!-- Benefit 3 -->
+                    <div class="benefit-card">
+                        <h3 class="benefit-title" data-translate="Benefit 3 Title">End-to-End Offshore Support</h3>
+                        <p class="benefit-desc" data-translate="Benefit 3 Desc">From vessel chartering and cargo
+                            transport
+                            to offshore platform support and
+                            marine security escort, we provide integrated solutions under one trusted partner.</p>
+                    </div>
+                    <!-- Benefit 4 -->
+                    <div class="benefit-card">
+                        <h3 class="benefit-title" data-translate="Benefit 4 Title">Global Reach, Local Insight</h3>
+                        <p class="benefit-desc" data-translate="Benefit 4 Desc">We support operations across coastal and
+                            international waters, combining
+                            global operational reach with strong regional understanding and partnerships.</p>
+                    </div>
+                    <!-- Benefit 5 -->
+                    <div class="benefit-card">
+                        <h3 class="benefit-title" data-translate="Benefit 5 Title">Flexible & Scalable Solutions</h3>
+                        <p class="benefit-desc" data-translate="Benefit 5 Desc">Our services are tailored to your
+                            operational needs—whether for short-term
+                            assignments or long-term maritime and offshore contracts.</p>
+                    </div>
+                    <!-- Benefit 6 -->
+                    <div class="benefit-card">
+                        <h3 class="benefit-title" data-translate="Benefit 6 Title">Partnership-Driven Approach</h3>
+                        <p class="benefit-desc" data-translate="Benefit 6 Desc">We work closely with clients, vessel
+                            owners,
+                            and stakeholders to build
+                            long-term partnerships that deliver operational efficiency and sustained value.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Proof/Stats Section -->
+            <section class="proof-section">
+                <div class="proof-container">
+                    <div class="proof-item">
+                        <span class="proof-number" data-translate="Proof Vessels">150+</span>
+                        <span class="proof-text" data-translate="Proof Vessels Text">Active & Managed Vessels</span>
+                    </div>
+                    <div class="proof-item">
+                        <span class="proof-number" data-translate="Proof Countries">50+</span>
+                        <span class="proof-text" data-translate="Proof Countries Text">Countries Served Across Global
+                            Waters</span>
+                    </div>
+                    <div class="proof-item">
+                        <span class="proof-number" data-translate="Proof Support">24/7</span>
+                        <span class="proof-text" data-translate="Proof Support Text">Marine & Offshore Operations
+                            Support</span>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ADS Section -->
+            <section class="ads-section">
+                <!-- Top Content -->
+                <div class="ads-header">
+                    <div class="ads-header-left">
+                        <h2 class="ads-heading" data-translate="Ads Heading">Romeo Alpha Has You Covered</h2>
+                        <!-- Optional Maritime Icon SVG -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="margin-top: 12px;">
+                            <path d="M12 2L2 22H22L12 2Z" fill="#E6F2ED" fill-opacity="0.3" />
+                        </svg>
+                    </div>
+                    <div class="ads-header-right">
+                        <p class="ads-subtext" data-translate="Ads Subtext">Need reliable marine transport? Offshore
+                            support
+                            on short notice? Security
+                            escort for critical cargo?<br>Romeo Alpha delivers dependable maritime solutions across
+                            coastal
+                            and international waters.</p>
+                    </div>
+                </div>
+
+                <!-- Tags Row -->
+                <div class="ads-tags-wrapper">
+                    <div class="ads-tags-row">
+                        <span class="ads-tag" data-translate="Tag Marine">Marine Transportation</span>
+                        <span class="ads-tag" data-translate="Tag Offshore">Offshore Support</span>
+                        <span class="ads-tag" data-translate="Tag Charter">Vessel Chartering</span>
+                        <span class="ads-tag" data-translate="Tag Security">Marine Security Escort</span>
+                        <span class="ads-tag" data-translate="Tag Logistics">Oil & Gas Logistics</span>
+                        <span class="ads-tag" data-translate="Tag Global">Global Operations</span>
+                    </div>
+                </div>
+
+                <!-- Ship Animation/Gallery Strip -->
+                <div class="ads-ship-strip">
+                    <div class="ads-gallery-track">
+                        <!-- Image 1 -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-gallery-1.webp" alt="Ship Image 1" class="ads-gallery-img">
+                        </div>
+                        <!-- Image 2 -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-gallery-2.webp" alt="Workers Image" class="ads-gallery-img">
+                        </div>
+                        <!-- Image 3 -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-gallery-3.webp" alt="Refinery Image" class="ads-gallery-img">
+                        </div>
+                        <!-- Image 4 -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-gallery-4.webp" alt="Container Ship Image" class="ads-gallery-img">
+                        </div>
+                        <!-- New Image 1 -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-upload-1.webp" alt="New Gallery Image 1" class="ads-gallery-img">
+                        </div>
+                        <!-- New Image 2 -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-upload-2.webp" alt="New Gallery Image 2" class="ads-gallery-img">
+                        </div>
+                        <!-- New Image 3 -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-upload-3.webp" alt="New Gallery Image 3" class="ads-gallery-img">
+                        </div>
+                        <!-- New Image 4 -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-upload-4.webp" alt="New Gallery Image 4" class="ads-gallery-img">
+                        </div>
+
+                        <!-- Repeat for Loop Effect -->
+
+                        <!-- Image 1 (Copy) -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-gallery-1.webp" alt="Ship Image 1" class="ads-gallery-img">
+                        </div>
+                        <!-- Image 2 (Copy) -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-gallery-2.webp" alt="Workers Image" class="ads-gallery-img">
+                        </div>
+                        <!-- Image 3 (Copy) -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-gallery-3.webp" alt="Refinery Image" class="ads-gallery-img">
+                        </div>
+                        <!-- Image 4 (Copy) -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-gallery-4.webp" alt="Container Ship Image" class="ads-gallery-img">
+                        </div>
+                        <!-- New Image 1 (Copy) -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-upload-1.webp" alt="New Gallery Image 1" class="ads-gallery-img">
+                        </div>
+                        <!-- New Image 2 (Copy) -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-upload-2.webp" alt="New Gallery Image 2" class="ads-gallery-img">
+                        </div>
+                        <!-- New Image 3 (Copy) -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-upload-3.webp" alt="New Gallery Image 3" class="ads-gallery-img">
+                        </div>
+                        <!-- New Image 4 (Copy) -->
+                        <div class="ads-gallery-item">
+                            <img src="images/ads-upload-4.webp" alt="New Gallery Image 4" class="ads-gallery-img">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Banner Section -->
+            <section class="banner-section" id="banner">
+                <div class="banner-group">
+                    <div class="banner-content-left">
+                        <h2 class="banner-heading" data-translate="Banner Heading">Let’s Do Business Together</h2>
+                        <p class="banner-subtext" data-translate="Banner Subtext">Partner with us on all maritime
+                            transportation, operations and security
+                            solution across coastal and international waters worldwide.</p>
+                        <button class="banner-btn" data-translate="Banner Button">Partner with us today</button>
+                    </div>
+                    <div class="banner-image-right">
+                        <img src="images/globe-banner.webp" alt="Global Maritime Network" class="banner-image">
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Simple Landing Footer -->
+            <!-- Footer Section -->
+            <footer class="footer-section">
+                <div class="footer-main-group" style="border-top: none;">
+                    <div class="footer-col">
+                        <h3 data-translate="Footer Subscribe Heading">Subscribe to our newsletter</h3>
+                        <form class="footer-newsletter-form">
+                            <div class="input-group">
+                                <input type="email" placeholder="Email" required>
+                                <button type="submit" data-translate="Footer Subscribe Btn">Subscribe</button>
+                            </div>
+                        </form>
+                        <div class="footer-social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61582132920070" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/romeoalphamaritime_/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/romeo-alpha-9b7936417" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-col footer-col-middle">
+                        <h3 data-translate="Footer Business Heading">Doing Business Together</h3>
+                        <ul class="footer-services-list">
+                            <li><a href="index.html#services" data-translate="Footer Link What">What we do</a></li>
+                            <li><a href="fleets.html" data-translate="Footer Link Fleets">Our fleets</a></li>
+                            <li><a href="index.html#offshore" data-translate="Footer Link Offshore">Offshore
+                                    services</a></li>
+                            <li><a href="index.html#security" data-translate="Footer Link Security">Marine security</a>
+                            </li>
+                            <li><a href="index.html#charter" data-translate="Footer Link Charter">Vessel charter &
+                                    management</a></li>
+                            <li><a href="index.html#banner" data-translate="Footer Link Partnership">Partnerships</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col footer-col-middle">
+                        <h3 data-translate="Footer Know Heading">Get to know Us</h3>
+                        <ul class="footer-services-list">
+                            <li><a href="about.html" data-translate="Footer Link About">About Romeo Alpha</a></li>
+                            <li><a href="index.html#insights" data-translate="Footer Link News">News & Insights</a></li>
+                            <li><a href="careers.html" data-translate="Footer Link Careers">Careers</a></li>
+                            <li><a href="contact.html" data-translate="Footer Link Contact">Contact us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Scroll to Top Button -->
+                <a href="#top-anchor" class="scroll-top-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 19V5M5 12l7-7 7 7" />
+                    </svg>
+                    <span data-translate="Scroll Top">Top</span>
+                </a>
+
+                <div class="footer-secondary-group">
+                    <span>Headquarters - +2348066184330 / +2348055769660 - info@romeoalphamaritime.com - Port Harcourt, Nigeria.</span>
+                </div>
+                <div class="copyright-group">
+                    <span>&copy; 2026 Romeo Alpha Maritime Consultancy & Logistics International Ltd</span>
+                </div>
+            </footer>
+
+
+
+        </div>
+    </div>
+
+    <script>
+        // Floating Notice Dismissal
+        const noticeHeader = document.querySelector('.floating-notice');
+        const noticeCloseBtn = document.querySelector('.floating-notice .close-icon-container');
+        const mainHeader = document.querySelector('.main-header');
+        const landingPage = document.querySelector('.landing-page');
+        const mobileMenu = document.querySelector('.mobile-menu-dropdown');
+
+        if (noticeCloseBtn) {
+            noticeCloseBtn.addEventListener('click', () => {
+                noticeHeader.style.display = 'none';
+                mainHeader.style.top = '0';
+                landingPage.style.paddingTop = '80px';
+                if (mobileMenu) mobileMenu.style.top = '80px';
+            });
+        }
+
+        // Mobile Menu Logic
+        const toggleBtn = document.querySelector('.mobile-menu-toggle');
+        const hamburgerIcon = document.querySelector('.icon-hamburger');
+        const closeIcon = document.querySelector('.icon-close');
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('open');
+
+                // Adjust position based on header state
+                if (mainHeader.style.top === '0px') {
+                    mobileMenu.style.top = '80px';
+                } else {
+                    mobileMenu.style.top = '128px';
+                }
+
+                if (isOpen) {
+                    hamburgerIcon.style.display = 'none';
+                    closeIcon.style.display = 'block';
+                } else {
+                    hamburgerIcon.style.display = 'block';
+                    closeIcon.style.display = 'none';
+                }
+            });
+
+            // Auto-Close Menu on Scroll
+            window.addEventListener('scroll', () => {
+                if (mobileMenu.classList.contains('open')) {
+                    const heroSection = document.querySelector('.hero-section');
+                    if (heroSection) {
+                        const heroBottom = heroSection.getBoundingClientRect().bottom;
+                        // If hero bottom is near the header (e.g., scrolled past)
+                        if (heroBottom < 80) {
+                            mobileMenu.classList.remove('open');
+                            hamburgerIcon.style.display = 'block';
+                            closeIcon.style.display = 'none';
+                        }
+                    }
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mobileMenu && mobileMenu.classList.contains('open') &&
+                    !mobileMenu.contains(e.target) &&
+                    !toggleBtn.contains(e.target)) {
+
+                    mobileMenu.classList.remove('open');
+                    // Reset icons
+                    if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+                    if (closeIcon) closeIcon.style.display = 'none';
+                }
+            });
+        }
+
+
+
+        let currentLang = 'en';
+
+
+        // --- NEW: Automated Nav Active State Logic ---
+        function updateNavActiveState() {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Run on load
+        window.addEventListener('DOMContentLoaded', updateNavActiveState);
+        // --- End of Nav Logic ---
+
+        // Initialize (Moved to after translations definition to be safe? Or keep here but safe due to typeof check)
+        // We'll leave it here.
+
+        // Language Selector Logic
+        const langSelector = document.getElementById('language-selector');
+        const currentLangText = document.getElementById('current-lang-text');
+        const langOptions = document.querySelectorAll('.lang-option');
+
+        if (langSelector) {
+            // Force scroll to top on reload
+            if (history.scrollRestoration) {
+                history.scrollRestoration = 'manual';
+            } else {
+                window.onbeforeunload = function () {
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            // Nav active state is still needed locally or globally
+            window.addEventListener('DOMContentLoaded', updateNavActiveState);
+        }
+
+
+    </script>
+</body>
+
+</html>
