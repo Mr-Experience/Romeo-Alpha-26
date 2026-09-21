@@ -12,6 +12,7 @@ import Contact from './components/Contact';
 import Marketplace from './components/Marketplace';
 import MarketplaceDetail from './components/MarketplaceDetail';
 import MarketplaceInquiry from './components/MarketplaceInquiry';
+import Certifications from './components/Certifications';
 import OperationDetail from './components/OperationDetail';
 import ServiceMaritime from './components/ServiceMaritime';
 import ServiceCharter from './components/ServiceCharter';
@@ -52,6 +53,7 @@ const AppContentWithLocation = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/certifications" element={<Certifications />} />
 
 
           <Route path="/careers" element={<Careers />} />

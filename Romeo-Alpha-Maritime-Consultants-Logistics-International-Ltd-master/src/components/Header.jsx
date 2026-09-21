@@ -85,6 +85,7 @@ const Header = () => {
                     <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>{t('About us')}</Link>
                     <Link to="/marketplace" className={`nav-link ${location.pathname === '/marketplace' ? 'active' : ''}`}>{t('Marketplace')}</Link>
                     <Link to="/team" className={`nav-link ${location.pathname === '/team' ? 'active' : ''}`}>{t('Our team')}</Link>
+                    <Link to="/certifications" className={`nav-link ${location.pathname === '/certifications' ? 'active' : ''}`}>Certifications</Link>
                     <Link to="/contact" className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>{t('Contact us')}</Link>
                 </nav>
 
@@ -124,6 +125,7 @@ const Header = () => {
                     <Link to="/about" className="nav-link">{t('About us')}</Link>
                     <Link to="/marketplace" className="nav-link">{t('Marketplace')}</Link>
                     <Link to="/team" className="nav-link">{t('Our team')}</Link>
+                    <Link to="/certifications" className="nav-link">Certifications</Link>
                     <Link to="/contact" className="nav-link">{t('Contact us')}</Link>
                 </nav>
                 <div className="mobile-cta">

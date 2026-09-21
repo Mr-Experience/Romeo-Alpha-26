@@ -9,6 +9,7 @@ import { fetchNewsletterSubscriptions, deleteNewsletterSubscription } from '../s
 import { Export, Add, Edit, Trash, Ship, MessageQuestion, Sms, Element3, Logout, SearchNormal1, CloseSquare, HambergerMenu } from 'iconsax-react';
 import { fetchMessages, updateMessage, deleteMessage } from '../services/messages';
 import { fetchAds, addAd, deleteAd } from '../services/ads';
+import { getCertifications, addCertification, updateCertification, deleteCertification, uploadCertificationImage } from '../services/certifications';
 import { config } from '../config';
 import { formatPrice } from '../utils/format';
 import { compressToWebp } from '../utils/compress';
@@ -65,6 +66,15 @@ const AdminDashboard = () => {
     const [adsLoading, setAdsLoading] = useState(false);
     const [showAddAd, setShowAddAd] = useState(false);
     const [selectedAdFiles, setSelectedAdFiles] = useState([]);
+
+    // Certifications State
+    const [certifications, setCertifications] = useState([]);
+    const [certsLoading, setCertsLoading] = useState(false);
+    const [showAddCert, setShowAddCert] = useState(false);
+    const [newCert, setNewCert] = useState({ title: '', description: '' });
+    const [editingCert, setEditingCert] = useState(null);
+    const [selectedCertFile, setSelectedCertFile] = useState(null);
+
 
     // Authentication Check & Proactive Profile Load
     useEffect(() => {
@@ -144,9 +154,24 @@ const AdminDashboard = () => {
             loadMessages();
         } else if (activeTab === 'ads') {
             loadAds();
+        } else if (activeTab === 'certifications') {
+            loadCertifications();
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeTab]);
+
+    const loadCertifications = async () => {
+        setCertsLoading(true);
+        try {
+            const data = await getCertifications();
+            setCertifications(data || []);
+        } catch (err) {
+            console.error(err);
+            setError(`Certifications Error: ${err.message}`);
+        } finally {
+            setCertsLoading(false);
+        }
+    };
 
     const loadFaqs = async () => {
         try {
@@ -261,6 +286,17 @@ const AdminDashboard = () => {
         }
     };
 
+    const handleDeleteCertification = async (id) => {
+        if (!window.confirm(t('Are you sure?'))) return;
+        try {
+            await deleteCertification(id);
+            loadCertifications();
+            notify(t('Delete Success'), 'success');
+        } catch (err) {
+            notify("Error deleting Certification: " + err.message, 'error');
+        }
+    };
+
     const handleMassDeleteMessages = async () => {
         if (selectedItems.size === 0) return;
 
@@ -300,6 +336,9 @@ const AdminDashboard = () => {
             } else if (activeTab === 'faq') {
                 await Promise.all(ids.map(id => deleteFaq(id)));
                 loadFaqs();
+            } else if (activeTab === 'certifications') {
+                await Promise.all(ids.map(id => deleteCertification(id)));
+                loadCertifications();
             }
             setSelectedItems(new Set());
             notify(t('Delete Success'), 'success');
@@ -485,6 +524,7 @@ const AdminDashboard = () => {
                     <div style={{ flex: 1 }}>
                         <SidebarItem icon={Element3} label={t('Dashboard')} tabId="dashboard" />
                         <SidebarItem icon={Ship} label={t('Marketplace')} tabId="marketplace" />
+                        <SidebarItem icon={Ship} label="Certifications" tabId="certifications" />
                         <SidebarItem icon={MessageQuestion} label={t('Messages')} tabId="messages" />
                         <SidebarItem icon={MessageQuestion} label={t('FAQ')} tabId="faq" />
                         <SidebarItem icon={Sms} label={t('Newsletter')} tabId="newsletter" />
@@ -1409,7 +1449,129 @@ const AdminDashboard = () => {
                             </div>
                         </div>
                     )}
+                
+                    {activeTab === 'certifications' && (
+                        <div className="fade-in">
+                            <header style={{ marginBottom: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <h1 style={{ fontSize: '28px', color: '#0A192F', margin: 0 }}>Certifications</h1>
+                                <button
+                                    onClick={() => setShowAddCert(!showAddCert)}
+                                    className="dashboard-action-btn"
+                                    style={{
+                                        display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 20px', backgroundColor: '#0056b3', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', width: 'fit-content'
+                                    }}
+                                >
+                                    <Add size="20" />
+                                    <span className="btn-text">Add Certification</span>
+                                </button>
+                            </header>
+
+                            {showAddCert && (
+                                <div style={{ backgroundColor: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid #eaeaea', marginBottom: '32px' }}>
+                                    <h3 style={{ marginBottom: '20px', color: '#0A192F' }}>{editingCert ? 'Edit Certification' : 'Add Certification'}</h3>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                            <label style={{ fontSize: '14px', fontWeight: '600', color: '#6B82AC' }}>Title</label>
+                                            <input
+                                                type="text"
+                                                style={{ padding: '10px', borderRadius: '6px', border: '1px solid #ddd' }}
+                                                value={newCert.title}
+                                                onChange={(e) => setNewCert({ ...newCert, title: e.target.value })}
+                                            />
+                                        </div>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                            <label style={{ fontSize: '14px', fontWeight: '600', color: '#6B82AC' }}>Description</label>
+                                            <textarea
+                                                style={{ padding: '10px', borderRadius: '6px', border: '1px solid #ddd', minHeight: '80px' }}
+                                                value={newCert.description}
+                                                onChange={(e) => setNewCert({ ...newCert, description: e.target.value })}
+                                            />
+                                        </div>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                            <label style={{ fontSize: '14px', fontWeight: '600', color: '#6B82AC' }}>Upload Certificate Image (WebP Enforced)</label>
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                style={{ padding: '8px', borderRadius: '6px', border: '1px solid #ddd' }}
+                                                onChange={(e) => setSelectedCertFile(e.target.files[0])}
+                                            />
+                                            {selectedCertFile && <span style={{fontSize:'12px', color:'green'}}>{selectedCertFile.name} selected</span>}
+                                        </div>
+                                    </div>
+                                    <div style={{ marginTop: '20px', display: 'flex', gap: '12px' }}>
+                                        <button
+                                            style={{ padding: '10px 24px', backgroundColor: '#0056b3', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600' }}
+                                            onClick={async () => {
+                                                if (!newCert.title) return alert('Title required');
+                                                setCertsLoading(true);
+                                                try {
+                                                    let imageUrl = editingCert ? editingCert.image_url : '';
+                                                    if (selectedCertFile) {
+                                                        const webpFile = await compressToWebp(selectedCertFile);
+                                                        imageUrl = await uploadCertificationImage(webpFile);
+                                                    }
+                                                    const itemToSave = { title: newCert.title, description: newCert.description, image_url: imageUrl };
+                                                    if (editingCert) {
+                                                        await updateCertification(editingCert.id, itemToSave);
+                                                    } else {
+                                                        await addCertification(itemToSave);
+                                                    }
+                                                    setShowAddCert(false);
+                                                    setEditingCert(null);
+                                                    setNewCert({ title: '', description: '' });
+                                                    setSelectedCertFile(null);
+                                                    loadCertifications();
+                                                } catch (err) {
+                                                    alert("Error: " + err.message);
+                                                } finally {
+                                                    setCertsLoading(false);
+                                                }
+                                            }}
+                                        >
+                                            {certsLoading ? 'Saving...' : (editingCert ? 'Update' : 'Save')}
+                                        </button>
+                                        <button
+                                            style={{ padding: '10px 24px', backgroundColor: '#f8f9fa', color: '#666', border: '1px solid #ddd', borderRadius: '6px', cursor: 'pointer' }}
+                                            onClick={() => {
+                                                setShowAddCert(false);
+                                                setEditingCert(null);
+                                                setNewCert({ title: '', description: '' });
+                                                setSelectedCertFile(null);
+                                            }}
+                                        >
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
+                                {certifications.map(cert => (
+                                    <div key={cert.id} style={{ backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #eee', padding: '16px', display: 'flex', flexDirection: 'column' }}>
+                                        <div style={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f8f9fa', marginBottom: '12px' }}>
+                                            <img src={cert.image_url} alt={cert.title} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                                        </div>
+                                        <div style={{flex: 1}}>
+                                            <h4 style={{ margin: '0 0 8px 0' }}>{cert.title}</h4>
+                                            <p style={{ margin: 0, fontSize: '13px', color: '#666' }}>{cert.description}</p>
+                                        </div>
+                                        <div style={{ display: 'flex', gap: '8px', marginTop: '16px', paddingTop: '12px', borderTop: '1px solid #eee' }}>
+                                            <button
+                                                onClick={() => { setEditingCert(cert); setNewCert({ title: cert.title, description: cert.description }); setShowAddCert(true); }}
+                                                style={{ flex: 1, padding: '8px', backgroundColor: '#E8F4FF', color: '#0056b3', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '13px', fontWeight: '600' }}
+                                            >Edit</button>
+                                            <button
+                                                onClick={() => handleDeleteCertification(cert.id)}
+                                                style={{ flex: 1, padding: '8px', backgroundColor: '#FFF0F0', color: '#D32F2F', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '13px', fontWeight: '600' }}
+                                            >Delete</button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </main>
+
 
             </div >
             <style>{`
