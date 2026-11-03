@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="g"><circle cx="256" cy="214" r="176"/></clipPath>
+  </defs>
+  <!-- Globe -->
+  <circle cx="256" cy="214" r="176" fill="#7DBDE8"/>
+  <g clip-path="url(#g)" fill="none" stroke="#fff" stroke-width="12">
+    <ellipse cx="256" cy="214" rx="66" ry="176"/>
+    <ellipse cx="256" cy="214" rx="132" ry="176"/>
+    <line x1="256" y1="30" x2="256" y2="400"/>
+    <line x1="60" y1="120" x2="452" y2="120"/>
+    <line x1="60" y1="214" x2="452" y2="214"/>
+    <line x1="60" y1="308" x2="452" y2="308"/>
+  </g>
+  <!-- Ship, bow-on -->
+  <g>
+    <rect x="236" y="172" width="40" height="22" rx="4" fill="#0F4A7E"/>
+    <path d="M196 196 H316 L326 236 H186 Z" fill="#0F4A7E"/>
+    <rect x="210" y="208" width="92" height="9" rx="3" fill="#fff"/>
+    <path d="M164 248 H348 L340 300 H172 Z" fill="#2D7BB8"/>
+    <rect x="186" y="262" width="140" height="8" rx="3" fill="#fff"/>
+    <path d="M172 300 H340 L256 418 Z" fill="#0F4A7E"/>
+    <path d="M256 300 V418" stroke="#2D7BB8" stroke-width="6"/>
+  </g>
+  <!-- Waves -->
+  <g fill="none" stroke="#0F4A7E" stroke-width="12" stroke-linecap="round">
+    <path d="M40 420 q30 -26 60 0 t60 0 t44 -6"/>
+    <path d="M472 420 q-30 -26 -60 0 t-60 0 t-44 -6"/>
+  </g>
+</svg>
