@@ -20,7 +20,7 @@ const SEO = ({
     titleKey,
     descriptionKey,
     keywordsKey,
-    ogImage = '/images/logo-alpha.jpg',
+    ogImage = '/images/og-share.jpg',
     ogType = 'website',
     schema,
     noindex = false,
