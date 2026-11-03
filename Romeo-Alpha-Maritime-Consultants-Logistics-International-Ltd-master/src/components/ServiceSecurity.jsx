@@ -4,7 +4,14 @@ import { useTranslation } from '../context/TranslationContext';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'iconsax-react';
 import { Shield, Lock, Eye } from 'iconsax-react';
-import SEO from './SEO';
+import SEO, { serviceSchema } from './SEO';
+
+const SCHEMA = serviceSchema({
+    name: 'Marine Security Escort',
+    serviceType: 'Marine security escort',
+    description: 'Armed marine security escort vessels, asset protection and risk assessments for safe transit through high-risk zones in the Gulf of Guinea and beyond.',
+    path: '/service/security',
+});
 
 const ServiceSecurity = () => {
     const { t } = useTranslation();
@@ -15,7 +22,7 @@ const ServiceSecurity = () => {
 
     return (
         <div className="service-page">
-            <SEO titleKey="SEO Service Security Title" descriptionKey="SEO Service Security Desc" keywordsKey="SEO Service Security Keywords" />
+            <SEO titleKey="SEO Service Security Title" descriptionKey="SEO Service Security Desc" keywordsKey="SEO Service Security Keywords" schema={SCHEMA} />
             {/* Hero Section */}
             <div className="service-hero" style={{ backgroundImage: "url('/images/security-escort.webp')" }}>
                 <div className="overlay-dark"></div>

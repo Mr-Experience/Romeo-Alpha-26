@@ -31,9 +31,21 @@ const Home = () => {
         return [...list, ...list];
     };
 
+    // FAQPage structured data built from the same FAQs shown on the page,
+    // so answer engines can quote them directly.
+    const faqSchema = faqItems.length > 0 ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((faq) => ({
+            '@type': 'Question',
+            name: t(faq.question),
+            acceptedAnswer: { '@type': 'Answer', text: t(faq.answer) },
+        })),
+    } : undefined;
+
     return (
         <div className="landing-page">
-            <SEO titleKey="SEO Home Title" descriptionKey="SEO Home Desc" keywordsKey="SEO Home Keywords" />
+            <SEO titleKey="SEO Home Title" descriptionKey="SEO Home Desc" keywordsKey="SEO Home Keywords" schema={faqSchema} />
             {/* Hero Section */}
             <section className="hero-section">
                 <div className="hero-image-container">

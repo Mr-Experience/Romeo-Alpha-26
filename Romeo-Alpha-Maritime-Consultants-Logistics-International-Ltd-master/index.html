@@ -5,14 +5,13 @@
     <link rel="icon" type="image/jpeg" href="/images/logo-alpha.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Canonical (homepage) -->
-    <link rel="canonical" href="https://romeoalphamaritime.com/" />
+    <!-- Canonical is set per route by src/components/SEO.jsx and baked into prerendered HTML -->
 
     <!-- Robots intent -->
     <meta name="robots" content="index, follow" />
 
     <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://xpqmoqnbosznaggjdkxz.supabase.co" />
+    <link rel="preconnect" href="https://kqzxbmvpqcjssusnpepl.supabase.co" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -23,13 +22,14 @@
     <link rel="preload" as="image" href="/images/dynamic_hero_ship.webp" fetchpriority="high" />
     
     <!-- Primary Metadata -->
-    <title>Romeo Alpha Maritime</title>
+    <title>Vessel Shipping, Offshore Support &amp; Marine Escort | Romeo Alpha Maritime</title>
     <meta name="description" content="Romeo Alpha Maritime Consultants and Logistics International Ltd is a premier provider of shipping, marine security escort, offshore oil & gas support, and vessel repair services globally." />
     <meta name="keywords" content="Romeo Alpha, maritime transportation, offshore logistics, vessel chartering, marine security escort, vessel repairs, scrap vessel sales, oil and gas logistics, West Africa shipping" />
     <meta name="author" content="Romeo Alpha Maritime" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Romeo Alpha Maritime" />
     <meta property="og:title" content="Romeo Alpha Maritime" />
     <meta property="og:description" content="Powering Maritime Transportation and Offshore Operations. Safe and reliable shipping, marine security escort services, and offshore oil & gas support." />
     <meta property="og:image" content="https://romeoalphamaritime.com/images/logo-alpha.jpg" />
@@ -41,85 +41,99 @@
     <meta name="twitter:description" content="Powering Maritime Transportation and Offshore Operations. Safe and reliable shipping, marine security escort services, and offshore oil & gas support." />
     <meta name="twitter:image" content="https://romeoalphamaritime.com/images/logo-alpha.jpg" />
 
-    <!-- JSON-LD Organization Schema -->
+    <!-- Site-wide structured data. Page-specific schema (Service, FAQPage) is added per route by src/components/SEO.jsx -->
     <script type="application/ld+json">
-    {
+{
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Romeo Alpha Maritime Consultants and Logistics International Ltd",
-      "url": "https://romeoalphamaritime.com",
+      "@type": [
+        "Organization",
+        "LocalBusiness"
+      ],
+      "@id": "https://romeoalphamaritime.com/#organization",
+      "name": "Romeo Alpha Maritime",
+      "legalName": "Romeo Alpha Maritime Consultants and Logistics International Ltd",
+      "url": "https://romeoalphamaritime.com/",
       "logo": "https://romeoalphamaritime.com/images/logo-alpha.jpg",
-      "description": "Romeo Alpha Maritime provides ship chartering, offshore oil & gas support, marine security escort, and vessel repair services globally, based in Port Harcourt, Nigeria.",
+      "image": "https://romeoalphamaritime.com/images/logo-alpha.jpg",
+      "description": "Romeo Alpha Maritime provides ship chartering, marine security escort, offshore oil & gas support, maritime transportation, vessel repair and vessel/scrap sales, based in Port Harcourt, Nigeria and serving the Gulf of Guinea and international waters.",
+      "email": "info@romeoalphamaritime.com",
+      "telephone": "+2348066184330",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "No. 58 Circular Road, Alcon Road, Woji",
         "addressLocality": "Port Harcourt",
+        "addressRegion": "Rivers State",
         "addressCountry": "NG"
       },
+      "areaServed": [
+        {
+          "@type": "Place",
+          "name": "Gulf of Guinea"
+        },
+        {
+          "@type": "Country",
+          "name": "Nigeria"
+        },
+        {
+          "@type": "Place",
+          "name": "Worldwide"
+        }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+2348066184330",
+          "email": "info@romeoalphamaritime.com",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+2348055769660"
+        }
+      ],
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CAC RC Number",
+          "value": "9257242"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "SCUML Registration",
+          "value": "SC261080"
+        }
+      ],
+      "knowsAbout": [
+        "Ship chartering",
+        "Marine security escort",
+        "Offshore oil and gas logistics",
+        "Vessel repair",
+        "Vessel and scrap sales",
+        "Maritime transportation"
+      ],
       "sameAs": [
         "https://www.instagram.com/romeoalphamaritime_",
         "https://www.linkedin.com/company/romeo-alpha",
-        "https://www.tiktok.com/@romeo.alpha.maritime"
+        "https://www.tiktok.com/@romeo.alpha.maritime",
+        "https://www.facebook.com/profile.php?id=61582132920070"
       ]
     }
     </script>
-
-    <!-- JSON-LD Service Schema: Marine Security Escort -->
     <script type="application/ld+json">
-    {
+{
       "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Marine Security Escort",
-      "provider": {
-        "@type": "Organization",
-        "name": "Romeo Alpha Maritime"
+      "@type": "WebSite",
+      "@id": "https://romeoalphamaritime.com/#website",
+      "url": "https://romeoalphamaritime.com/",
+      "name": "Romeo Alpha Maritime",
+      "publisher": {
+        "@id": "https://romeoalphamaritime.com/#organization"
       },
-      "areaServed": "Global",
-      "description": "Marine security escort services for vessels operating in West African waters and beyond, ensuring safe transit through high-risk maritime zones."
-    }
-    </script>
-
-    <!-- JSON-LD Service Schema: Ship Chartering -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Ship Chartering",
-      "provider": {
-        "@type": "Organization",
-        "name": "Romeo Alpha Maritime"
-      },
-      "areaServed": "Global",
-      "description": "Vessel chartering and maritime transportation solutions for cargo, offshore support, and specialised marine operations worldwide."
-    }
-    </script>
-
-    <!-- JSON-LD Service Schema: Offshore Oil & Gas Support -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Offshore Oil & Gas Support",
-      "provider": {
-        "@type": "Organization",
-        "name": "Romeo Alpha Maritime"
-      },
-      "areaServed": "Global",
-      "description": "Comprehensive offshore oil and gas logistics support including supply vessel operations, crew transfers, and equipment mobilisation for upstream energy clients."
-    }
-    </script>
-
-    <!-- JSON-LD Service Schema: Vessel Repair -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Vessel Repair & Maintenance",
-      "provider": {
-        "@type": "Organization",
-        "name": "Romeo Alpha Maritime"
-      },
-      "areaServed": "Global",
-      "description": "Professional vessel repair, dry-docking, and routine maintenance services to keep fleets seaworthy and compliant with international maritime standards."
+      "inLanguage": "en"
     }
     </script>
   </head>

@@ -1,2 +1,20 @@
-/login    /admin-login    301
-/*        /index.html     200
+# Netlify serves a static file when one exists, so these 200 rewrites only kick in
+# for routes that were not prerendered (see scripts/prerender.mjs).
+/login                    /admin-login   301
+
+/                         /spa.html      200
+/about                    /spa.html      200
+/team                     /spa.html      200
+/certifications           /spa.html      200
+/careers                  /spa.html      200
+/contact                  /spa.html      200
+/marketplace              /spa.html      200
+/marketplace/*            /spa.html      200
+/marketplace-inquiry/*    /spa.html      200
+/operation-detail         /spa.html      200
+/service/*                /spa.html      200
+/admin-login              /spa.html      200
+/admin-dashboard          /spa.html      200
+
+# Anything else is a real 404 (status 404, noindex) instead of a soft 404
+/*                        /404.html      404

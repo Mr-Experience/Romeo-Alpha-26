@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from '../context/TranslationContext';
 import { ArrowLeft } from 'iconsax-react';
 import { Activity, Setting2, Layer } from 'iconsax-react';
-import SEO from './SEO';
+import SEO, { serviceSchema } from './SEO';
+
+const SCHEMA = serviceSchema({
+    name: 'Offshore Oil & Gas Support',
+    serviceType: 'Offshore oil and gas support',
+    description: 'Support for offshore platforms and oil rigs: oilfield logistics, supply vessel operations, crew transfers, anchor handling and towing.',
+    path: '/service/offshore',
+});
 
 const ServiceOffshore = () => {
     const { t } = useTranslation();
@@ -15,7 +22,7 @@ const ServiceOffshore = () => {
 
     return (
         <div className="service-page">
-            <SEO titleKey="SEO Service Offshore Title" descriptionKey="SEO Service Offshore Desc" keywordsKey="SEO Service Offshore Keywords" />
+            <SEO titleKey="SEO Service Offshore Title" descriptionKey="SEO Service Offshore Desc" keywordsKey="SEO Service Offshore Keywords" schema={SCHEMA} />
             {/* Hero Section */}
             <div className="service-hero" style={{ backgroundImage: "url('/images/bottom-2.webp')" }}>
                 <div className="overlay-dark"></div>
