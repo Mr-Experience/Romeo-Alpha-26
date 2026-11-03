@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from '../context/TranslationContext';
 import { ArrowLeft } from 'iconsax-react';
 import { Clock, Location, Chart1 } from 'iconsax-react';
-import SEO from './SEO';
+import SEO, { serviceSchema } from './SEO';
+
+const SCHEMA = serviceSchema({
+    name: 'Vessel Chartering & Ship Management',
+    serviceType: 'Ship chartering',
+    description: 'Vessel chartering and ship management: the right vessel in the right location at the right time, with qualified crew, bunkering and vessel inspections.',
+    path: '/service/charter',
+});
 
 const ServiceCharter = () => {
     const { t } = useTranslation();
@@ -15,7 +22,7 @@ const ServiceCharter = () => {
 
     return (
         <div className="service-page">
-            <SEO titleKey="SEO Service Charter Title" descriptionKey="SEO Service Charter Desc" keywordsKey="SEO Service Charter Keywords" />
+            <SEO titleKey="SEO Service Charter Title" descriptionKey="SEO Service Charter Desc" keywordsKey="SEO Service Charter Keywords" schema={SCHEMA} />
             {/* Hero Section */}
             <div className="service-hero" style={{ backgroundImage: "url('/images/bottom-1.webp')" }}>
                 <div className="overlay-dark"></div>

@@ -3,12 +3,4 @@
   command = "npm run build"
   publish = "dist"
 
-[[redirects]]
-  from = "/login"
-  to = "/admin-login"
-  status = 301
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# SPA rewrites and the real 404 live in public/_redirects (route-aware, see scripts/prerender.mjs)

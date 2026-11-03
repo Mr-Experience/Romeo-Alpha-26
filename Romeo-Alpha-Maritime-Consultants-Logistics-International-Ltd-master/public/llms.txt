@@ -1,30 +1,42 @@
 # Romeo Alpha Maritime
 
-> Romeo Alpha Maritime Consultants and Logistics International Ltd is a global
-> provider of ship chartering, marine security escort, offshore oil & gas support,
-> and vessel repair services, based in Port Harcourt, Nigeria, serving clients
-> worldwide with a focus on West African waters.
+> Romeo Alpha Maritime Consultants and Logistics International Ltd is a maritime services company headquartered in Port Harcourt, Nigeria. It provides ship chartering, marine security escort, offshore oil & gas support, maritime transportation, vessel repair, and vessel/scrap sales, with core expertise in the Gulf of Guinea and West African waters and coverage of international shipping routes.
 
-## Company
-- Name: Romeo Alpha Maritime Consultants and Logistics International Ltd
-- Registration: Registered with SCUML (EFCC), SC261080
-- Location: Port Harcourt, Nigeria
-- Service area: Global, with core expertise in West Africa / Gulf of Guinea
+## Company facts
+- Legal name: Romeo Alpha Maritime Consultants and Logistics International Ltd
+- Short name: Romeo Alpha Maritime
+- Headquarters: No. 58 Circular Road, Alcon Road, Woji, Port Harcourt, Rivers State, Nigeria
+- Phone: +234 806 618 4330, +234 805 576 9660
+- Email: info@romeoalphamaritime.com
+- Registration: Corporate Affairs Commission (CAC) RC 9257242; SCUML (EFCC) SC261080
+- Service area: Gulf of Guinea, West Africa, and international shipping lanes connecting Africa, Europe and the Americas
+- Operations: 24/7 operations support
 
-## Core Services
-- Ship Chartering: https://romeoalphamaritime.com/service/charter
-- Marine Security Escort: https://romeoalphamaritime.com/service/security
-- Offshore Oil & Gas Support: https://romeoalphamaritime.com/service/offshore
-- Vessel Repair: https://romeoalphamaritime.com/service/maritime
+## Services
+- [Vessel Chartering & Ship Management](https://romeoalphamaritime.com/service/charter): finding the right vessel in the right location at the right time, with crew supply, bunkering and vessel inspections.
+- [Marine Security Escort](https://romeoalphamaritime.com/service/security): armed escort vessels, asset protection and risk assessments for transit through high-risk zones.
+- [Offshore Oil & Gas Support](https://romeoalphamaritime.com/service/offshore): platform and oil rig support, oilfield logistics, supply vessels, crew transfers, anchor handling and towing.
+- [Maritime Transportation & Shipping](https://romeoalphamaritime.com/service/maritime): marine transportation and shipping logistics for dry and liquid cargo.
+- [Marketplace](https://romeoalphamaritime.com/marketplace): vessels and marine equipment for sale or hire, scrap vessel sales, and repair services.
 
-## Key Pages
-- Homepage: https://romeoalphamaritime.com/
-- About Us: https://romeoalphamaritime.com/about
-- Marketplace (vessel/scrap sales): https://romeoalphamaritime.com/marketplace
-- Contact: https://romeoalphamaritime.com/contact
+## Frequently asked questions
+- What services does Romeo Alpha offer? Vessel chartering, offshore support, marine security escort, ship brokerage, cargo logistics, fleet management, and oil & gas offshore operations across coastal and international waters.
+- Where do you operate? Globally, with primary coverage of West African waters, the Gulf of Guinea, the Mediterranean, and international routes connecting Africa, Europe and the Americas.
+- How do I request a quote? Use the "Get Quotes" button on the website, email info@romeoalphamaritime.com, or call the operations line. The team typically responds within 24 hours.
+- What vessels are available? Offshore support vessels (OSVs), anchor handling tugs (AHTS), platform supply vessels (PSVs), crew boats, tugboats and security escort vessels.
+- Is support available 24/7? Yes, the operations centre monitors active vessels around the clock.
+- How can I partner with Romeo Alpha? Contact the business development team via https://romeoalphamaritime.com/contact.
+
+## Key pages
+- [Home](https://romeoalphamaritime.com/)
+- [About](https://romeoalphamaritime.com/about)
+- [Team](https://romeoalphamaritime.com/team)
+- [Certifications](https://romeoalphamaritime.com/certifications)
+- [Careers](https://romeoalphamaritime.com/careers)
+- [Contact](https://romeoalphamaritime.com/contact)
+- [Sitemap](https://romeoalphamaritime.com/sitemap.xml)
 
 ## Social
-- Instagram: https://www.instagram.com/romeoalphamaritime_
 - LinkedIn: https://www.linkedin.com/company/romeo-alpha
+- Instagram: https://www.instagram.com/romeoalphamaritime_
 - TikTok: https://www.tiktok.com/@romeo.alpha.maritime
-- Facebook: https://www.facebook.com/profile.php?id=61582132920070

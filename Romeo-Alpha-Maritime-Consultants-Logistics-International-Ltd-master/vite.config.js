@@ -4,7 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  // Absolute base: relative ('./') broke every nested route (e.g. /service/charter loaded /service/assets/*.js)
+  base: '/',
   build: {
     // Generate source maps for better debugging (flagged as missing by PageSpeed)
     sourcemap: true,

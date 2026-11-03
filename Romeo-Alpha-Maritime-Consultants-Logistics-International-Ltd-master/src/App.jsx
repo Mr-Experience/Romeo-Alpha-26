@@ -21,6 +21,7 @@ import ServiceSecurity from './components/ServiceSecurity';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 import Team from './components/Team';
+import NotFound from './components/NotFound';
 // Import legacy styles (now in src/styles)
 import './styles/styles.css';
 import './styles/footer_styles.css';
@@ -70,6 +71,7 @@ const AppContentWithLocation = () => {
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/team" element={<Team />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       {!isLogin && !isDashboard && !isMarketplaceDetail && !isMarketplaceInquiry && <Footer />}
