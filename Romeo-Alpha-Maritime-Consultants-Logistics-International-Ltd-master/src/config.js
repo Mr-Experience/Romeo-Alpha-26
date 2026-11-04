@@ -26,6 +26,8 @@ export const config = {
     linkedinPartnerId: import.meta.env.VITE_LINKEDIN_PARTNER_ID || '10010730',
     // Google Analytics 4: Admin > Data streams > Web > "Measurement ID" (G-XXXXXXXXXX)
     ga4MeasurementId: import.meta.env.VITE_GA4_ID || 'G-8NT2JP7KG8',
+    // TikTok: Ads Manager > Tools > Events Manager > Data sources > pixel ID
+    tiktokPixelId: import.meta.env.VITE_TIKTOK_PIXEL_ID || 'DBLHMUBC77UFMFQA8JI0',
     // LinkedIn conversion IDs (Campaign Manager > Analyze > Conversion tracking > each conversion's ID)
     linkedinConversions: {
         lead: import.meta.env.VITE_LI_CONV_LEAD || '',        // contact / marketplace form sent

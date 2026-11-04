@@ -1,5 +1,5 @@
 /**
- * Consent-gated analytics: LinkedIn Insight Tag + Google Analytics 4.
+ * Consent-gated analytics: LinkedIn Insight Tag + Google Analytics 4 + TikTok Pixel.
  *
  * - Does nothing until an ID is set in config.js (or the matching VITE_ env var).
  * - Loads no third-party script until the visitor accepts cookies (NDPA / GDPR).
@@ -12,11 +12,12 @@ import { config } from '../config';
 const CONSENT_KEY = 'ra_cookie_consent'; // 'granted' | 'denied'
 const LI_ID = String(config.linkedinPartnerId || '').trim();
 const GA_ID = String(config.ga4MeasurementId || '').trim();
+const TT_ID = String(config.tiktokPixelId || '').trim();
 const CONV = config.linkedinConversions || {};
 
 let started = false;
 
-export const analyticsConfigured = () => Boolean(LI_ID || GA_ID);
+export const analyticsConfigured = () => Boolean(LI_ID || GA_ID || TT_ID);
 const isBot = () => typeof navigator !== 'undefined' && navigator.webdriver;
 const isAdminPath = (p = window.location.pathname) => /^\/(admin|login)/.test(p);
 
@@ -57,11 +58,25 @@ function startGA() {
     loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`);
 }
 
+// TikTok's official loader, unchanged apart from not firing page() (we send SPA page views ourselves).
+function startTikTok() {
+    /* eslint-disable */
+    !function (w, d, t) {
+        w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=d.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=d.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+        ttq.load(TT_ID);
+    }(window, document, 'ttq');
+    /* eslint-enable */
+}
+
+// TikTok standard event names for our conversion kinds.
+const TT_EVENTS = { lead: 'SubmitForm', quote: 'ClickButton', whatsapp: 'Contact', call: 'Contact', email: 'Contact' };
+
 export function startAnalytics() {
     if (started || !analyticsConfigured() || isBot() || getConsent() !== 'granted') return;
     started = true;
     if (LI_ID) startLinkedIn();
     if (GA_ID) startGA();
+    if (TT_ID) startTikTok();
     document.addEventListener('click', onClick, true);
     trackPageView(window.location.pathname + window.location.search);
 }
@@ -76,6 +91,7 @@ export function trackPageView(path) {
     }
     // LinkedIn's tag records the first page itself; record later SPA navigations.
     if (LI_ID && window.lintrk && trackPageView.seen) window.lintrk('track');
+    if (TT_ID && window.ttq) window.ttq.page();
     trackPageView.seen = true;
 }
 
@@ -89,6 +105,9 @@ export function trackConversion(kind, params = {}) {
         const gaName = kind === 'lead' ? 'generate_lead' : `click_${kind}`;
         window.gtag('event', gaName, { page_path: window.location.pathname, ...params });
     }
+    if (TT_ID && window.ttq && TT_EVENTS[kind]) {
+        window.ttq.track(TT_EVENTS[kind], { content_name: params.item_name || params.form || kind });
+    }
     if (LI_ID && window.lintrk && CONV[kind]) {
         window.lintrk('track', { conversion_id: Number(CONV[kind]) || CONV[kind] });
     }
@@ -96,8 +115,11 @@ export function trackConversion(kind, params = {}) {
 
 /** GA4-only event (detail for reports; not sent to LinkedIn so ad conversions stay clean). */
 export function trackEvent(name, params = {}) {
-    if (!started || isAdminPath() || !GA_ID || !window.gtag) return;
-    window.gtag('event', name, { page_path: window.location.pathname, ...params });
+    if (!started || isAdminPath()) return;
+    if (GA_ID && window.gtag) window.gtag('event', name, { page_path: window.location.pathname, ...params });
+    if (TT_ID && window.ttq && name === 'view_item') {
+        window.ttq.track('ViewContent', { content_id: params.item_id, content_name: params.item_name, content_type: 'product' });
+    }
 }
 
 const labelOf = (el) => (el.getAttribute('data-track-label') || el.getAttribute('aria-label') || el.textContent || '')

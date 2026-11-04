@@ -43,15 +43,15 @@ const PrivacyPolicy = () => (
         <h2>4. Cookies and analytics</h2>
         <p>
             The website only loads analytics and advertising cookies after you click “Accept” on the cookie notice. If you click
-            “Decline”, none are set. We use Google Analytics 4 to understand which pages are useful, and the LinkedIn Insight Tag to
-            measure how our LinkedIn adverts perform. Your choice is stored in your browser; to change it, clear this site’s data in
+            “Decline”, none are set. We use Google Analytics 4 to understand which pages are useful, and the LinkedIn Insight Tag and
+            TikTok Pixel to measure how our LinkedIn and TikTok adverts perform. Your choice is stored in your browser; to change it, clear this site’s data in
             your browser settings and reload the page.
         </p>
 
         <h2>5. Who we share it with</h2>
         <p>We do not sell your personal data. We share it only where needed with:</p>
         <ul>
-            <li>Service providers who host or process data for us: Supabase (database), Netlify (website hosting), EmailJS and Zoho Mail (email), Google (Analytics), LinkedIn (lead forms and ad measurement), and Meta (WhatsApp).</li>
+            <li>Service providers who host or process data for us: Supabase (database), Netlify (website hosting), EmailJS and Zoho Mail (email), Google (Analytics), LinkedIn (lead forms and ad measurement), TikTok (ad measurement), and Meta (WhatsApp).</li>
             <li>Vessel owners, operators, sellers, brokers and service partners, where necessary to answer your enquiry or complete a transaction you have asked for.</li>
             <li>Professional advisers, regulators, law enforcement or courts, where the law requires it.</li>
         </ul>
