@@ -67,11 +67,20 @@ async function main() {
     const server = await preview({ preview: { port: 4179, strictPort: false, open: false }, logLevel: 'silent' });
     const origin = server.resolvedUrls.local[0].replace(/\/$/, '');
 
-    const browser = await puppeteer.launch({
-        headless: true,
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
-        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-    });
+    const closeServer = () => new Promise((r) => server.httpServer.close(r));
+    let browser;
+    try {
+        browser = await puppeteer.launch({
+            headless: true,
+            executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+            args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+        });
+    } catch (e) {
+        // Never leave the preview server running: an open server keeps Node alive and hangs the build.
+        await closeServer();
+        log(`Chrome unavailable, shipping as SPA: ${e.message.split('\n')[0]}`);
+        return;
+    }
 
     const rendered = new Map();
     const queue = [...SEED_ROUTES];
@@ -115,7 +124,7 @@ async function main() {
         } catch (e) { log(`404 render failed, keeping fallback: ${e.message}`); }
     } finally {
         await browser.close();
-        await new Promise((r) => server.httpServer.close(r));
+        await closeServer();
     }
 
     for (const [route, html] of rendered) {
@@ -127,4 +136,7 @@ async function main() {
     log(`done: ${rendered.size} pages prerendered`);
 }
 
-main().catch((e) => { console.warn('[prerender] skipped after error:', e.message); });
+// Always exit explicitly so a stray handle can never hang the CI build.
+main()
+    .catch((e) => { console.warn('[prerender] skipped after error:', e.message); })
+    .finally(() => process.exit(0));

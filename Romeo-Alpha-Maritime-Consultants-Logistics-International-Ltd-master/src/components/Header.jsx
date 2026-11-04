@@ -50,7 +50,7 @@ const Header = () => {
         return (
             <header className="main-header" style={{ justifyContent: 'flex-start', paddingLeft: '24px', top: 0, marginTop: 0, backgroundColor: '#FFFFFF' }}>
                 <Link to="/">
-                    <img src="/images/logo-alpha.jpg" alt={t('Logo Alt')} className="logo" />
+                    <img src="/images/logo-header.png" alt={t('Logo Alt')} className="logo" />
                 </Link>
             </header>
         );
@@ -76,7 +76,7 @@ const Header = () => {
             <header className="main-header">
                 <div className="header-left">
                     <Link to="/">
-                        <img src="/images/logo-alpha.jpg" alt={t('Logo Alt')} className="logo" />
+                        <img src="/images/logo-header.png" alt={t('Logo Alt')} className="logo" />
                     </Link>
                 </div>
 

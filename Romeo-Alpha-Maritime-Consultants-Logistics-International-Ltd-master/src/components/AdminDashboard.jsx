@@ -482,7 +482,7 @@ const AdminDashboard = () => {
                     </div>
                     <Link to="/">
                         <img
-                            src="/images/logo-alpha.jpg"
+                            src="/images/logo-header.png"
                             alt="Romeo Alpha Logo"
                             style={{ height: '50px', objectFit: 'contain' }}
                         />
