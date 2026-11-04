@@ -23,7 +23,7 @@ export const config = {
 
     // ANALYTICS (public IDs, safe to commit). Leave empty to disable tracking entirely.
     // LinkedIn: Campaign Manager > Analyze > Insight Tag > "Partner ID" (digits only)
-    linkedinPartnerId: import.meta.env.VITE_LINKEDIN_PARTNER_ID || '',
+    linkedinPartnerId: import.meta.env.VITE_LINKEDIN_PARTNER_ID || '10010730',
     // Google Analytics 4: Admin > Data streams > Web > "Measurement ID" (G-XXXXXXXXXX)
     ga4MeasurementId: import.meta.env.VITE_GA4_ID || '',
     // LinkedIn conversion IDs (Campaign Manager > Analyze > Conversion tracking > each conversion's ID)
