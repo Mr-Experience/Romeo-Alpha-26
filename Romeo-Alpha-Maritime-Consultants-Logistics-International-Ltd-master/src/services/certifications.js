@@ -1,5 +1,5 @@
 import { config } from '../config';
-import { getSession } from './auth';
+import { getSession, clearSession } from './auth';
 
 const SUPABASE_URL = config.supabaseUrl;
 const API_KEY = config.supabaseAnonKey;
@@ -15,10 +15,14 @@ const getHeaders = () => {
 
 export const getCertifications = async () => {
     try {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/certifications?select=*&order=created_at.asc`, {
-            method: 'GET',
-            headers: getHeaders()
-        });
+        const url = `${SUPABASE_URL}/rest/v1/certifications?select=*&order=created_at.asc`;
+        let response = await fetch(url, { method: 'GET', headers: getHeaders() });
+
+        // A rejected admin token must never hide public certifications: retry as a public visitor.
+        if (response.status === 401) {
+            clearSession();
+            response = await fetch(url, { method: 'GET', headers: getHeaders() });
+        }
 
         if (!response.ok) {
             throw new Error('Failed to fetch certifications');

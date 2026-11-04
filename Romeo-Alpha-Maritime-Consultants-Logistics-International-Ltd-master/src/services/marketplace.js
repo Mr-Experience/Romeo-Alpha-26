@@ -1,5 +1,5 @@
 import { config } from '../config';
-import { getSession } from './auth';
+import { getSession, clearSession } from './auth';
 
 // Helper to get mock items from localStorage
 const getMockData = () => {
@@ -78,10 +78,15 @@ export const fetchMarketplaceItems = async () => {
             headers['Authorization'] = `Bearer ${token}`;
         }
 
-        const response = await fetch(`${config.supabaseUrl}/rest/v1/marketplace_items?select=*&order=created_at.desc`, {
-            method: 'GET',
-            headers: headers
-        });
+        const url = `${config.supabaseUrl}/rest/v1/marketplace_items?select=*&order=created_at.desc`;
+        let response = await fetch(url, { method: 'GET', headers });
+
+        // A rejected admin token must never hide public listings: retry as a public visitor.
+        if (response.status === 401 && headers['Authorization']) {
+            clearSession();
+            delete headers['Authorization'];
+            response = await fetch(url, { method: 'GET', headers });
+        }
 
         let data = [];
         if (response.ok) {
