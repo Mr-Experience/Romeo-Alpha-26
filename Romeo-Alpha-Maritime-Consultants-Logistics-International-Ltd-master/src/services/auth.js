@@ -81,6 +81,31 @@ export const clearSession = () => {
     localStorage.removeItem('admin_user');
 };
 
+// Returns the expiry time (ms) of a JWT, or null if it can't be read.
+const getTokenExpiry = (token) => {
+    try {
+        const payload = token.split('.')[1];
+        if (!payload) return null;
+        const json = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
+        return typeof json.exp === 'number' ? json.exp * 1000 : null;
+    } catch {
+        return null;
+    }
+};
+
+/**
+ * Returns the saved admin token, or null when there is none or it has expired.
+ * An expired token is cleared so it can't be sent to Supabase: an expired JWT
+ * makes every request fail with 401, which left public pages (marketplace,
+ * certifications) empty for anyone who had once logged in as admin.
+ */
 export const getSession = () => {
-    return localStorage.getItem('admin_access_token');
+    const token = localStorage.getItem('admin_access_token');
+    if (!token || token === 'mock_token') return token;
+    const expiresAt = getTokenExpiry(token);
+    if (expiresAt && expiresAt <= Date.now() + 30_000) {
+        clearSession();
+        return null;
+    }
+    return token;
 };

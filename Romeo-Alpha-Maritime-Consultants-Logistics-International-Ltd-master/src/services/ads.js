@@ -1,5 +1,5 @@
 import { config } from '../config';
-import { getSession } from './auth';
+import { getSession, clearSession } from './auth';
 
 // Helper to get mock ads
 const getMockAds = () => {
@@ -33,9 +33,15 @@ export const fetchAds = async () => {
         };
         if (token && token !== 'mock_token') headers['Authorization'] = `Bearer ${token}`;
 
-        const response = await fetch(`${config.supabaseUrl}/rest/v1/ads?select=*&order=created_at.desc`, {
-            headers: headers
-        });
+        const url = `${config.supabaseUrl}/rest/v1/ads?select=*&order=created_at.desc`;
+        let response = await fetch(url, { headers });
+
+        // A rejected admin token must never hide public ads: retry as a public visitor.
+        if (response.status === 401 && headers['Authorization']) {
+            clearSession();
+            delete headers['Authorization'];
+            response = await fetch(url, { headers });
+        }
         
         let data = [];
         if (response.ok) {
