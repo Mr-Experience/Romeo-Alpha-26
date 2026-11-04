@@ -7,6 +7,7 @@ import { config } from '../config';
 import emailjs from '@emailjs/browser';
 import { submitMessage } from '../services/messages';
 import { useNotification } from '../context/NotificationContext';
+import { trackConversion } from '../lib/analytics';
 
 const Contact = () => {
     const { t } = useTranslation();
@@ -60,6 +61,7 @@ const Contact = () => {
 
             await Promise.all([supabasePromise, emailjsPromise]);
 
+            trackConversion('lead', { form: 'contact_form' });
             notify(t('Form Success Alert'), 'success');
             form.reset();
 

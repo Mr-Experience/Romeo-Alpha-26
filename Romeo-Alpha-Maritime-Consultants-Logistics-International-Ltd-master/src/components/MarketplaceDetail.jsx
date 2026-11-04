@@ -10,6 +10,7 @@ import { submitMessage } from '../services/messages';
 import { useNotification } from '../context/NotificationContext';
 import SEO from './SEO';
 import { formatPrice } from '../utils/format';
+import { trackConversion } from '../lib/analytics';
 
 const FALLBACK_IMAGE = '/images/hero-v3.webp';
 const POLL_INTERVAL = 15000; // 15 seconds
@@ -190,6 +191,7 @@ const MarketplaceDetail = () => {
                 config.emailjsPublicKey
             );
 
+            trackConversion('lead', { form: 'marketplace_detail' });
             notify(t('Inquiry Success'), 'success');
             setShowInquiryForm(false);
             setFormData({ name: '', email: '', message: '' });
