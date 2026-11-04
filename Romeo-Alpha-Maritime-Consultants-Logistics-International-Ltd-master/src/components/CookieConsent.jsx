@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { analyticsConfigured, getConsent, setConsent } from '../lib/analytics';
 
 /**
@@ -19,7 +20,7 @@ const CookieConsent = () => {
         <div className="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent" data-prerender-skip>
             <p>
                 We use cookies to measure visits and improve our services (Google Analytics, LinkedIn).
-                No tracking happens unless you accept. See the Nigeria Data Protection Act 2023.
+                No tracking happens unless you accept. <Link to="/privacy">Privacy Policy</Link>
             </p>
             <div className="cookie-consent-actions">
                 <button type="button" className="cookie-btn cookie-btn-secondary" onClick={() => choose('denied')}>Decline</button>

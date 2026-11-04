@@ -13,6 +13,8 @@
 /marketplace-inquiry/*    /spa.html      200
 /operation-detail         /spa.html      200
 /service/*                /spa.html      200
+/privacy                  /spa.html      200
+/terms                    /spa.html      200
 /admin-login              /spa.html      200
 /admin-dashboard          /spa.html      200
 

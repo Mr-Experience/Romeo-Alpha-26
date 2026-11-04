@@ -118,6 +118,7 @@ const Footer = () => {
             </div>
             <div className="copyright-group">
                 <span>{t('Copyright')}</span>
+                <span className="footer-legal-links"><Link to="/privacy">Privacy Policy</Link> · <Link to="/terms">Terms &amp; Conditions</Link></span>
             </div>
         </footer>
     );

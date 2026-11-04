@@ -22,6 +22,8 @@ import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 import Team from './components/Team';
 import NotFound from './components/NotFound';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Terms from './components/Terms';
 import CookieConsent from './components/CookieConsent';
 import WhatsAppButton from './components/WhatsAppButton';
 import { startAnalytics, trackPageView } from './lib/analytics';
@@ -78,6 +80,8 @@ const AppContentWithLocation = () => {
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
