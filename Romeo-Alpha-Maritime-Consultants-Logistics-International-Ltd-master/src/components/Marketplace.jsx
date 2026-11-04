@@ -156,12 +156,12 @@ const Marketplace = () => {
                                         ))}
                                     </div>
                                     <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
-                                        <Link to={`/marketplace/${op.id}`} className="op-card-cta-link" style={{ textDecoration: 'none', flex: 1 }}>
+                                        <Link to={`/marketplace/${op.id}`} data-item={op.title} data-track-label="View vessel" className="op-card-cta-link" style={{ textDecoration: 'none', flex: 1 }}>
                                             <button className="op-card-cta" style={{ backgroundColor: '#F3FAFF', color: '#0056b3', border: '1px solid #0056b3' }}>
                                                 {t('See Details')}
                                             </button>
                                         </Link>
-                                        <Link to={`/marketplace/${op.id}?triggerInquiry=true`} className="op-card-cta-link" style={{ textDecoration: 'none', flex: 1 }}>
+                                        <Link to={`/marketplace/${op.id}?triggerInquiry=true`} data-track="quote" data-item={op.title} data-track-label="Vessel enquiry (list)" className="op-card-cta-link" style={{ textDecoration: 'none', flex: 1 }}>
                                             <button className="op-card-cta">{t('Reach out')}</button>
                                         </Link>
                                     </div>

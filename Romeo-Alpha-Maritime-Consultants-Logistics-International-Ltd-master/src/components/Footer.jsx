@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { subscribeToNewsletter } from '../services/newsletter';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../context/TranslationContext';
+import { config } from '../config';
 
 const Footer = () => {
     const { t } = useTranslation();
@@ -109,10 +110,15 @@ const Footer = () => {
 
             <div className="footer-secondary-group" style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
                 <span>{t('Footer Address')}</span>
+                <span className="footer-contact-links" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center' }}>
+                    {config.phones.map((ph) => <a key={ph.tel} href={`tel:${ph.tel}`}>{ph.display}</a>)}
+                    <a href={`https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(config.whatsappMessage)}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </span>
                 <span style={{ fontSize: '12px', opacity: 0.8, fontWeight: '500' }}>{t('CAC Registration')}</span>
             </div>
             <div className="copyright-group">
                 <span>{t('Copyright')}</span>
+                <span className="footer-legal-links"><Link to="/privacy">Privacy Policy</Link> · <Link to="/terms">Terms &amp; Conditions</Link></span>
             </div>
         </footer>
     );

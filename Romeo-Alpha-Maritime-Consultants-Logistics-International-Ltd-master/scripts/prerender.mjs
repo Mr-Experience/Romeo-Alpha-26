@@ -26,10 +26,11 @@ const MAX_PAGES = 300;
 const SEED_ROUTES = [
     '/', '/about', '/team', '/certifications', '/careers', '/contact', '/marketplace',
     '/service/maritime', '/service/charter', '/service/offshore', '/service/security',
+    '/privacy', '/terms',
 ];
 // Never prerender or list these.
 const EXCLUDE = [/^\/admin/, /^\/login/, /^\/marketplace-inquiry/, /^\/operation-detail/, /\/mock-/];
-const PRIORITY = { '/': '1.0', '/marketplace': '0.9', '/contact': '0.8', '/about': '0.8' };
+const PRIORITY = { '/privacy': '0.3', '/terms': '0.3', '/': '1.0', '/marketplace': '0.9', '/contact': '0.8', '/about': '0.8' };
 
 const log = (...a) => console.log('[prerender]', ...a);
 const isExcluded = (p) => EXCLUDE.some((re) => re.test(p));

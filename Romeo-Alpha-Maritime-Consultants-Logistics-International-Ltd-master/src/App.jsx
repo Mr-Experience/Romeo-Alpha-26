@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { TranslationProvider } from './context/TranslationContext';
 import { NotificationProvider } from './context/NotificationContext';
@@ -22,6 +22,11 @@ import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 import Team from './components/Team';
 import NotFound from './components/NotFound';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Terms from './components/Terms';
+import CookieConsent from './components/CookieConsent';
+import WhatsAppButton from './components/WhatsAppButton';
+import { startAnalytics, trackPageView } from './lib/analytics';
 // Import legacy styles (now in src/styles)
 import './styles/styles.css';
 import './styles/footer_styles.css';
@@ -47,6 +52,10 @@ const AppContentWithLocation = () => {
   const isMarketplaceDetail = location.pathname.startsWith('/marketplace/');
   const isMarketplaceInquiry = location.pathname.startsWith('/marketplace-inquiry/');
 
+  // Analytics: start once (only if consent was given earlier), then log each SPA navigation.
+  useEffect(() => { startAnalytics(); }, []);
+  useEffect(() => { trackPageView(location.pathname + location.search); }, [location.pathname, location.search]);
+
   return (
     <div className="page-wrapper">
       {!isDashboard && !isMarketplaceDetail && !isMarketplaceInquiry && <Header />}
@@ -71,10 +80,14 @@ const AppContentWithLocation = () => {
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       {!isLogin && !isDashboard && !isMarketplaceDetail && !isMarketplaceInquiry && <Footer />}
+      {!isLogin && !isDashboard && <WhatsAppButton />}
+      {!isLogin && !isDashboard && <CookieConsent />}
     </div>
 
   );

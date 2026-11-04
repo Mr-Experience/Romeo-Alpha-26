@@ -7,6 +7,7 @@ import { config } from '../config';
 import emailjs from '@emailjs/browser';
 import { submitMessage } from '../services/messages';
 import { useNotification } from '../context/NotificationContext';
+import { trackConversion } from '../lib/analytics';
 
 const MarketplaceInquiry = () => {
     const { t } = useTranslation();
@@ -73,6 +74,7 @@ const MarketplaceInquiry = () => {
                 config.emailjsPublicKey
             );
 
+            trackConversion('lead', { form: 'marketplace_inquiry' });
             notify(t('Inquiry Success'), 'success');
             setTimeout(() => navigate('/marketplace'), 2000);
         } catch (error) {

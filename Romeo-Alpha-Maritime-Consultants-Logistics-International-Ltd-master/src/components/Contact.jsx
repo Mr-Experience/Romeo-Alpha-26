@@ -7,6 +7,7 @@ import { config } from '../config';
 import emailjs from '@emailjs/browser';
 import { submitMessage } from '../services/messages';
 import { useNotification } from '../context/NotificationContext';
+import { trackConversion } from '../lib/analytics';
 
 const Contact = () => {
     const { t } = useTranslation();
@@ -60,6 +61,7 @@ const Contact = () => {
 
             await Promise.all([supabasePromise, emailjsPromise]);
 
+            trackConversion('lead', { form: 'contact_form' });
             notify(t('Form Success Alert'), 'success');
             form.reset();
 
@@ -116,7 +118,10 @@ const Contact = () => {
                         </div>
                         <div className="strip-text">
                             <h3>{t('Lets Talk Heading')}</h3>
-                            <p>{config.contactPhone}</p>
+                            <p className="contact-phone-links">
+                                {config.phones.map((ph) => <a key={ph.tel} href={`tel:${ph.tel}`}>{ph.display}</a>)}
+                                <a href={`https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(config.whatsappMessage)}`} target="_blank" rel="noopener noreferrer">WhatsApp: +234 805 576 9660</a>
+                            </p>
                             <span className="cta-text">{t('Call Us CTA')}</span>
                         </div>
                     </div>
@@ -134,7 +139,7 @@ const Contact = () => {
                         </div>
                         <div className="strip-text">
                             <h3>{t('Inbox Heading')}</h3>
-                            <p>info@romeoalphamaritime.com / Kyoyan99@yahoo.com</p>
+                            <p className="contact-phone-links"><a href="mailto:info@romeoalphamaritime.com">info@romeoalphamaritime.com</a><a href="mailto:Kyoyan99@yahoo.com">Kyoyan99@yahoo.com</a></p>
                             <span className="cta-text">{t('Email Us CTA')}</span>
                         </div>
                     </div>

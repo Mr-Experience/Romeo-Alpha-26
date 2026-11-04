@@ -10,6 +10,7 @@ import { submitMessage } from '../services/messages';
 import { useNotification } from '../context/NotificationContext';
 import SEO from './SEO';
 import { formatPrice } from '../utils/format';
+import { trackConversion, trackEvent } from '../lib/analytics';
 
 const FALLBACK_IMAGE = '/images/hero-v3.webp';
 const POLL_INTERVAL = 15000; // 15 seconds
@@ -190,6 +191,7 @@ const MarketplaceDetail = () => {
                 config.emailjsPublicKey
             );
 
+            trackConversion('lead', { form: 'marketplace_detail', item_name: item?.title });
             notify(t('Inquiry Success'), 'success');
             setShowInquiryForm(false);
             setFormData({ name: '', email: '', message: '' });
@@ -200,6 +202,11 @@ const MarketplaceDetail = () => {
             setIsSubmitting(false);
         }
     };
+
+    // Analytics: which vessel was viewed (GA4), once per listing.
+    useEffect(() => {
+        if (item?.id) trackEvent('view_item', { item_id: String(item.id), item_name: item.title, price: item.price || undefined });
+    }, [item?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
     if (loading) {
         return (
@@ -296,6 +303,9 @@ const MarketplaceDetail = () => {
                                 <button
                                     onClick={() => setShowInquiryForm(true)}
                                     className="btn-primary-action"
+                                    data-track="quote"
+                                    data-item={item.title}
+                                    data-track-label="Vessel enquiry"
                                 >
                                     <Sms size="22" variant="Bulk" /> {t('Send Inquiry Detail')}
                                 </button>
