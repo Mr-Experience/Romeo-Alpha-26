@@ -4,7 +4,8 @@
  * - Does nothing until an ID is set in config.js (or the matching VITE_ env var).
  * - Loads no third-party script until the visitor accepts cookies (NDPA / GDPR).
  * - Never runs during the build-time prerender (navigator.webdriver) or on admin pages.
- * - Tracks SPA page views, plus conversions: Get Quotes, WhatsApp, phone, email, form sent.
+ * - Tracks SPA page views; conversions (GA4 + LinkedIn): Get Quotes / vessel enquiry clicks,
+ *   WhatsApp, phone, email, form sent; GA4 only: vessel views and every other button/link click.
  */
 import { config } from '../config';
 
@@ -65,8 +66,11 @@ export function startAnalytics() {
     trackPageView(window.location.pathname + window.location.search);
 }
 
+let lastPath = null;
+
 export function trackPageView(path) {
-    if (!started || isAdminPath(path.split('?')[0])) return;
+    if (!started || isAdminPath(path.split('?')[0]) || path === lastPath) return;
+    lastPath = path;
     if (GA_ID && window.gtag) {
         window.gtag('event', 'page_view', { page_path: path, page_location: window.location.href, page_title: document.title });
     }
@@ -90,14 +94,26 @@ export function trackConversion(kind, params = {}) {
     }
 }
 
+/** GA4-only event (detail for reports; not sent to LinkedIn so ad conversions stay clean). */
+export function trackEvent(name, params = {}) {
+    if (!started || isAdminPath() || !GA_ID || !window.gtag) return;
+    window.gtag('event', name, { page_path: window.location.pathname, ...params });
+}
+
+const labelOf = (el) => (el.getAttribute('data-track-label') || el.getAttribute('aria-label') || el.textContent || '')
+    .replace(/\s+/g, ' ').trim().slice(0, 80);
+
 // One delegated listener covers every WhatsApp / phone / email link and Get Quotes button,
 // wherever they are (header, footer, contact page, marketplace), including ones added later.
 function onClick(e) {
-    const el = e.target.closest?.('a, button');
+    // Prefer the element carrying tracking tags (e.g. a <Link data-item> wrapping a <button>).
+    const el = e.target.closest?.('[data-track], [data-track-label]') || e.target.closest?.('a, button');
     if (!el) return;
-    const href = el.getAttribute('href') || '';
+    const href = (el.closest('a') || el).getAttribute('href') || '';
     if (/^https?:\/\/(wa\.me|api\.whatsapp\.com|chat\.whatsapp\.com)/i.test(href)) trackConversion('whatsapp', { link_url: href });
     else if (href.startsWith('tel:')) trackConversion('call', { link_url: href });
     else if (href.startsWith('mailto:')) trackConversion('email', { link_url: href });
-    else if (el.matches('.btn-get-quotes, [data-track="quote"]')) trackConversion('quote', { location: el.className });
+    else if (el.matches('.btn-get-quotes, [data-track="quote"]')) trackConversion('quote', { link_text: labelOf(el), item_name: el.getAttribute('data-item') || undefined });
+    // Every other button/link: GA4 only, with its label and destination.
+    else trackEvent('cta_click', { link_text: labelOf(el), link_url: href || undefined, item_name: el.getAttribute('data-item') || undefined });
 }

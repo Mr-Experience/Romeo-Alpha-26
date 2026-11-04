@@ -23,6 +23,7 @@ import AdminDashboard from './components/AdminDashboard';
 import Team from './components/Team';
 import NotFound from './components/NotFound';
 import CookieConsent from './components/CookieConsent';
+import WhatsAppButton from './components/WhatsAppButton';
 import { startAnalytics, trackPageView } from './lib/analytics';
 // Import legacy styles (now in src/styles)
 import './styles/styles.css';
@@ -81,6 +82,7 @@ const AppContentWithLocation = () => {
         </Routes>
       </main>
       {!isLogin && !isDashboard && !isMarketplaceDetail && !isMarketplaceInquiry && <Footer />}
+      {!isLogin && !isDashboard && <WhatsAppButton />}
       {!isLogin && !isDashboard && <CookieConsent />}
     </div>
 
