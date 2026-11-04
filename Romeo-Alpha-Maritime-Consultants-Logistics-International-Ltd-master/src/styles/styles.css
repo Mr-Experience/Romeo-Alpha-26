@@ -3115,20 +3115,18 @@ body {
 .cookie-btn-primary { background: #fff; color: #0F4A7E; }
 .cookie-btn-secondary { background: transparent; color: #fff; }
 
-/* Floating WhatsApp button */
+/* Floating WhatsApp button (icon only, clear of the footer's back-to-top button) */
 .whatsapp-float {
     position: fixed; right: 20px; bottom: 20px; z-index: 9990;
-    display: inline-flex; align-items: center; gap: 8px;
-    height: 56px; padding: 0 18px 0 13px; border-radius: 28px;
-    background: #25D366; color: #fff; text-decoration: none; font-weight: 600; font-size: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22); transition: transform .15s ease;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: #25D366; color: #fff; text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22); transition: transform .15s ease;
 }
-.whatsapp-float:hover { transform: translateY(-2px); color: #fff; }
-@media (max-width: 640px) {
-    .whatsapp-float { width: 56px; padding: 0; justify-content: center; }
-    .whatsapp-float-label { display: none; }
-    .cookie-consent { bottom: 84px; }
-}
+.whatsapp-float:hover { transform: translateY(-2px); }
+.whatsapp-float svg { width: 26px; height: 26px; }
+.whatsapp-float-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 640px) { .cookie-consent { bottom: 80px; } }
 .contact-phone-links a, .footer-contact-links a { color: inherit; text-decoration: none; }
 .contact-phone-links a:hover, .footer-contact-links a:hover { text-decoration: underline; }
 .contact-phone-links { display: flex; flex-direction: column; gap: 2px; }
@@ -3150,4 +3148,16 @@ body {
 /* Stack copyright + legal links; keep them clear of the floating WhatsApp button */
 .copyright-group { flex-direction: column; gap: 4px; height: auto; min-height: 60px; padding: 12px 16px; box-sizing: border-box; }
 .copyright-group .footer-legal-links { margin-top: 0; }
-@media (max-width: 640px) { .copyright-group { padding-bottom: 92px; } }
+@media (max-width: 640px) { .copyright-group { padding-bottom: 76px; } }
+
+/* Footer address band: grow with its content instead of a fixed 60px */
+.footer-secondary-group { height: auto; min-height: 60px; padding: 14px 16px; box-sizing: border-box; text-align: center; }
+.footer-secondary-group span { line-height: 1.5; }
+.footer-address a { color: inherit; text-decoration: none; }
+.footer-address a:hover { text-decoration: underline; }
+@media (max-width: 640px) {
+    /* Put "Top" in the flow above the address band so it never covers the CAC line */
+    footer .scroll-top-btn { position: static; margin: 8px auto 20px; }
+    /* Leave room under the copyright for the floating WhatsApp button */
+    footer .copyright-group { padding-bottom: 76px; }
+}

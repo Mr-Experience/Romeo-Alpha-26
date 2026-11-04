@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { subscribeToNewsletter } from '../services/newsletter';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../context/TranslationContext';
-import { config } from '../config';
+
+// Makes the phone numbers and emails inside the (translated) address line clickable.
+const linkify = (text) => text.split(/(\+234\d{10}|[\w.+-]+@[\w-]+\.[\w.]+)/g).map((part, i) => {
+    if (/^\+234\d{10}$/.test(part)) return <a key={i} href={`tel:${part}`}>{part}</a>;
+    if (/@/.test(part)) return <a key={i} href={`mailto:${part}`}>{part}</a>;
+    return part;
+});
 
 const Footer = () => {
     const { t } = useTranslation();
@@ -75,6 +81,11 @@ const Footer = () => {
                                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                             </svg>
                         </a>
+                        <a href="https://www.tiktok.com/@romeo.alpha.maritime" target="_blank" rel="noopener noreferrer" className="social-icon-link" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 <div className="footer-col footer-col-middle">
@@ -109,11 +120,7 @@ const Footer = () => {
             </div>
 
             <div className="footer-secondary-group" style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
-                <span>{t('Footer Address')}</span>
-                <span className="footer-contact-links" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center' }}>
-                    {config.phones.map((ph) => <a key={ph.tel} href={`tel:${ph.tel}`}>{ph.display}</a>)}
-                    <a href={`https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(config.whatsappMessage)}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                </span>
+                <span className="footer-address">{linkify(t('Footer Address'))}</span>
                 <span style={{ fontSize: '12px', opacity: 0.8, fontWeight: '500' }}>{t('CAC Registration')}</span>
             </div>
             <div className="copyright-group">
