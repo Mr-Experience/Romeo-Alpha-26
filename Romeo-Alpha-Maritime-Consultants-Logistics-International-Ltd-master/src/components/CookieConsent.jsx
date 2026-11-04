@@ -19,7 +19,7 @@ const CookieConsent = () => {
     return (
         <div className="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent" data-prerender-skip>
             <p>
-                We use cookies to measure visits and improve our services (Google Analytics, LinkedIn).
+                We use cookies to measure visits and improve our services (Google Analytics, LinkedIn, TikTok).
                 No tracking happens unless you accept. <Link to="/privacy">Privacy Policy</Link>
             </p>
             <div className="cookie-consent-actions">
