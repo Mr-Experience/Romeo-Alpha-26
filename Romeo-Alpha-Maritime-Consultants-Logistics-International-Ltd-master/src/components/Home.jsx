@@ -63,7 +63,10 @@ const Home = () => {
                 <div className="hero-text-group">
                     <h1 className="hero-heading">{t('Hero Heading')}</h1>
                     <p className="hero-subheading">{t('Hero Subheading')}</p>
-                    <Link to="/marketplace" className="hero-cta">{t('Browse Operations')}</Link>
+                    <div className="hero-cta-group">
+                        <Link to="/contact" className="hero-cta" data-track="quote" data-track-label="hero_request_vessel">{t('Hero CTA Primary')}</Link>
+                        <Link to="/marketplace" className="hero-cta-secondary" data-track-label="hero_browse_vessels">{t('Hero CTA Secondary')}</Link>
+                    </div>
                 </div>
             </section>
 

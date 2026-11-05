@@ -3161,3 +3161,27 @@ body {
     /* Leave room under the copyright for the floating WhatsApp button */
     footer .copyright-group { padding-bottom: 76px; }
 }
+
+/* Hero call to action group */
+.hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+.hero-cta-secondary {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    opacity: 0.9;
+}
+.hero-cta-secondary:hover { opacity: 1; }
+@media (max-width: 600px) {
+    .hero-text-group:has(.hero-cta-group) { top: calc(50% - 10px); }
+    .hero-cta-group { gap: 10px; }
+    .hero-cta-secondary { font-size: 13px; }
+}
