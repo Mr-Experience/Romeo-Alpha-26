@@ -139,7 +139,10 @@ async function main() {
             try {
                 const { html, links, words, missing } = await render(route);
                 if (missing) { log(`skip ${route} (listing not found or still loading)`); continue; }
-                if (words < 30) { log(`skip ${route} (only ${words} words rendered)`); continue; }
+                // Listing pages have no header/footer, so a short listing can be genuinely brief;
+                // the "missing" check above already rules out loaders and not-found pages.
+                const minWords = route.startsWith('/marketplace/') ? 10 : 30;
+                if (words < minWords) { log(`skip ${route} (only ${words} words rendered)`); continue; }
                 rendered.set(route, html);
                 for (const l of links) {
                     if (!seen.has(l) && !isExcluded(l) && !l.includes('.')) { seen.add(l); queue.push(l); }
