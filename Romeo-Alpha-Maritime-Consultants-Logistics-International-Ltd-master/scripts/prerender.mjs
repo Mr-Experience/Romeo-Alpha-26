@@ -33,6 +33,32 @@ const EXCLUDE = [/^\/admin/, /^\/login/, /^\/marketplace-inquiry/, /^\/operation
 const PRIORITY = { '/privacy': '0.3', '/terms': '0.3', '/': '1.0', '/marketplace': '0.9', '/contact': '0.8', '/about': '0.8' };
 
 const log = (...a) => console.log('[prerender]', ...a);
+
+// Seed every live vessel listing straight from the database, so listing pages are
+// prerendered and in the sitemap even if the marketplace grid hasn't linked them yet.
+async function listingRoutes() {
+    try {
+        let url = process.env.VITE_SUPABASE_URL;
+        let key = process.env.VITE_SUPABASE_ANON_KEY;
+        if (!url || !key) {
+            const cfg = await fs.readFile(path.resolve('src/config.js'), 'utf8');
+            url = url || (cfg.match(/supabaseUrl:[^']*'([^']+)'/) || [])[1];
+            key = key || (cfg.match(/supabaseAnonKey:[^']*'([^']+)'/) || [])[1];
+        }
+        if (!url || !key) return [];
+        const res = await fetch(`${url}/rest/v1/marketplace_items?select=id,is_active`, {
+            headers: { apikey: key }, signal: AbortSignal.timeout(15000),
+        });
+        if (!res.ok) { log(`listing seed: HTTP ${res.status}`); return []; }
+        const rows = await res.json();
+        const routes = rows.filter((r) => r.is_active !== false && r.id != null).map((r) => `/marketplace/${r.id}`);
+        log(`listing seed: ${routes.length} live listings`);
+        return routes;
+    } catch (e) {
+        log(`listing seed skipped: ${e.message}`);
+        return [];
+    }
+}
 const isExcluded = (p) => EXCLUDE.some((re) => re.test(p));
 const outFile = (route) => (route === '/' ? 'index.html' : `${route.slice(1)}.html`);
 
@@ -84,7 +110,7 @@ async function main() {
     }
 
     const rendered = new Map();
-    const queue = [...SEED_ROUTES];
+    const queue = [...SEED_ROUTES, ...(await listingRoutes())].filter((r) => !isExcluded(r));
     const seen = new Set(queue);
 
     const render = async (route) => {
@@ -93,12 +119,15 @@ async function main() {
             await page.goto(origin + route, { waitUntil: 'networkidle0', timeout: 45000 });
             // Let data-driven sections (FAQ, marketplace, team) settle.
             await page.waitForFunction(() => document.querySelector('#root')?.children.length > 0, { timeout: 15000 });
+            // Listing pages show a loader until their data arrives; wait for the real content.
+            await page.waitForFunction(() => !document.querySelector('.detail-loading-container'), { timeout: 20000 }).catch(() => {});
             await new Promise((r) => setTimeout(r, 800));
             const result = await page.evaluate(() => {
                 const links = [...document.querySelectorAll('a[href^="/"]')]
                     .map((a) => a.getAttribute('href').split(/[?#]/)[0].replace(/\/+$/, '') || '/');
                 document.querySelectorAll('[data-prerender-skip]').forEach((el) => el.remove());
-                return { html: '<!doctype html>\n' + document.documentElement.outerHTML, links, words: document.body.innerText.split(/\s+/).length };
+                const missing = !!document.querySelector('.detail-error-container, .detail-loading-container');
+                return { html: '<!doctype html>\n' + document.documentElement.outerHTML, links, missing, words: document.body.innerText.split(/\s+/).length };
             });
             return result;
         } finally { await page.close(); }
@@ -108,7 +137,8 @@ async function main() {
         while (queue.length && rendered.size < MAX_PAGES) {
             const route = queue.shift();
             try {
-                const { html, links, words } = await render(route);
+                const { html, links, words, missing } = await render(route);
+                if (missing) { log(`skip ${route} (listing not found or still loading)`); continue; }
                 if (words < 30) { log(`skip ${route} (only ${words} words rendered)`); continue; }
                 rendered.set(route, html);
                 for (const l of links) {
