@@ -31,6 +31,7 @@ const ServiceSecurity = () => {
                     <Link to="/" className="back-link"><ArrowLeft size="16" color="#ffffff" /> {t('Home')}</Link>
                     <h1>{t('Tag Security')}</h1>
                     <p>{t('Service 9 Desc')}</p>
+                    <Link to="/contact?service=security" className="service-hero-cta" data-track="quote" data-track-label="service_hero_security">{t('Service CTA Security')}</Link>
                 </div>
             </div>
 
@@ -68,7 +69,7 @@ const ServiceSecurity = () => {
                         </li>
                     </ul>
 
-                    <ServiceExtra name="Security" />
+                    <ServiceExtra name="Security" service="security" />
 
                     <div className="service-gallery">
                         <img src="/images/security-escort.webp" alt={t('Tag Security')} />
@@ -79,8 +80,8 @@ const ServiceSecurity = () => {
                         <h3>{t('Banner Heading')}</h3>
                         <p>{t('Banner Subtext')}</p>
                         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <Link to="/contact" style={{ textDecoration: 'none' }}>
-                                <button className="standard-btn" style={{ padding: '0 32px', width: 'auto', minWidth: '160px' }}>{t('Banner Button')}</button>
+                            <Link to="/contact?service=security" style={{ textDecoration: 'none' }} data-track="quote" data-track-label="service_banner_security">
+                                <button className="standard-btn" style={{ padding: '0 32px', width: 'auto', minWidth: '160px' }}>{t('Service CTA Security')}</button>
                             </Link>
                             <Link to="/marketplace" style={{ textDecoration: 'none' }}>
                                 <button className="standard-btn" style={{ padding: '0 32px', width: 'auto', minWidth: '160px', backgroundColor: 'transparent', border: '2px solid #ffffff', color: '#ffffff' }}>{t('Marketplace')}</button>

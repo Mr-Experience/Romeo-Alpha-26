@@ -78,9 +78,13 @@ body {
 .banner-closed .operation-detail-page,
 .banner-closed .marketplace-page,
 .banner-closed .careers-page,
-.banner-closed .team-page {
+.banner-closed .team-page,
+.banner-closed .marketplace-detail-page,
+.banner-closed .detail-loading-container,
+.banner-closed .detail-error-container {
     padding-top: 80px !important;
 }
+.banner-closed .legal-page { padding-top: 112px; }
 
 
 

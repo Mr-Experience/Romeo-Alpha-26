@@ -31,6 +31,7 @@ const ServiceOffshore = () => {
                     <Link to="/" className="back-link"><ArrowLeft size="16" color="#ffffff" /> {t('Home')}</Link>
                     <h1>{t('Tag Offshore')}</h1>
                     <p>{t('Service 8 Desc')}</p>
+                    <Link to="/contact?service=offshore" className="service-hero-cta" data-track="quote" data-track-label="service_hero_offshore">{t('Service CTA Offshore')}</Link>
                 </div>
             </div>
 
@@ -68,7 +69,7 @@ const ServiceOffshore = () => {
                         </li>
                     </ul>
 
-                    <ServiceExtra name="Offshore" />
+                    <ServiceExtra name="Offshore" service="offshore" />
 
                     <div className="service-gallery">
                         <img src="/images/bottom-2.webp" alt={t('Tag Offshore')} />
@@ -79,8 +80,8 @@ const ServiceOffshore = () => {
                         <h3>{t('Banner Heading')}</h3>
                         <p>{t('Banner Subtext')}</p>
                         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <Link to="/contact" style={{ textDecoration: 'none' }}>
-                                <button className="standard-btn" style={{ padding: '0 32px', width: 'auto', minWidth: '160px' }}>{t('Banner Button')}</button>
+                            <Link to="/contact?service=offshore" style={{ textDecoration: 'none' }} data-track="quote" data-track-label="service_banner_offshore">
+                                <button className="standard-btn" style={{ padding: '0 32px', width: 'auto', minWidth: '160px' }}>{t('Service CTA Offshore')}</button>
                             </Link>
                             <Link to="/marketplace" style={{ textDecoration: 'none' }}>
                                 <button className="standard-btn" style={{ padding: '0 32px', width: 'auto', minWidth: '160px', backgroundColor: 'transparent', border: '2px solid #ffffff', color: '#ffffff' }}>{t('Marketplace')}</button>

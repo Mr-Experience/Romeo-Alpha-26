@@ -1,0 +1,143 @@
+/* Conversion audit fixes (Nov 2026). Loaded last so these rules win over older overrides. */
+
+/* #2 Trust line under the homepage hero buttons */
+.hero-trust {
+    margin-top: 20px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFFFFF;
+    opacity: 0.95;
+    letter-spacing: 0.01em;
+}
+
+/* #4 Quote buttons on service pages */
+.service-hero-cta,
+.service-inline-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 28px;
+    border-radius: 40px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+.service-hero-cta { margin-top: 24px; background: #FFFFFF; color: #0F172A; }
+.service-hero-cta:hover { background: #E8EEF7; }
+.service-inline-cta { margin: 8px 0 32px; background: #6B82AC; color: #FFFFFF; }
+.service-inline-cta:hover { background: #5A6E91; }
+
+/* #5 Contact form: new fields */
+.form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    background-color: #FAFBFD;
+    color: #111827;
+    box-sizing: border-box;
+    min-height: 48px;
+}
+.form-group select:focus { border-color: #6B82AC; background-color: #FFFFFF; outline: none; }
+.form-optional { font-weight: 400; color: #6B7280; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-row-2 .form-group { min-width: 0; }
+.form-trust { margin: 16px 0 0; font-size: 14px; color: #4B5563; line-height: 1.5; }
+@media (max-width: 600px) { .form-row-2 { grid-template-columns: 1fr; gap: 0; } }
+
+/* #1 Marketplace load error actions */
+.no-results-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+.no-results-actions .op-card-cta { text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+
+/* #11 Compact quote button in the phone/tablet header */
+.phone-cta { display: none; }
+@media (max-width: 1024px) {
+    .phone-cta {
+        display: inline-flex;
+        align-items: center;
+        min-height: 40px;
+        padding: 0 14px;
+        margin-left: 8px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+}
+
+/* #10 Homepage service photos: whole photo is the link; button visible on touch screens */
+.upper-image-placeholder .overlay-button-link,
+.lower-image-container .overlay-button-link {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+}
+@media (hover: none) {
+    .upper-image-placeholder .overlay-button,
+    .lower-image-container .overlay-button { opacity: 1; transform: translateY(0); }
+    .upper-image-placeholder .image-overlay-text,
+    .lower-image-container .image-overlay-text { transform: translateY(-46px); }
+}
+
+/* #17 Closing call to action on the homepage */
+.closing-cta-section { padding: 64px 16px; background: #F4F7FB; }
+.closing-cta-box { max-width: 760px; margin: 0 auto; text-align: center; font-family: 'Manrope', sans-serif; }
+.closing-cta-box h2 { font-size: clamp(24px, 3vw, 34px); color: #0F172A; margin: 0 0 12px; }
+.closing-cta-box p { font-size: 17px; color: #4B5563; line-height: 1.6; margin: 0 0 24px; }
+.closing-cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.closing-cta-primary,
+.closing-cta-secondary {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 0 28px; border-radius: 40px;
+    font-weight: 600; font-size: 16px; text-decoration: none;
+}
+.closing-cta-primary { background: #6B82AC; color: #FFFFFF; }
+.closing-cta-primary:hover { background: #5A6E91; }
+.closing-cta-secondary { background: #25D366; color: #FFFFFF; }
+.closing-cta-secondary:hover { background: #1EBE5B; }
+
+/* #7 #8 Phones and small tablets: readable text, comfortable tap targets */
+@media (max-width: 768px) {
+    .hero-subheading { font-size: 16px !important; line-height: 1.55 !important; }
+    .hero-cta { font-size: 16px !important; padding: 14px 32px !important; }
+    .hero-cta-secondary { display: inline-block; padding: 12px 8px; font-size: 15px !important; }
+    .hero-trust { font-size: 13px; }
+    .panel-description { font-size: 15px !important; line-height: 1.6 !important; }
+    .panel-button-solid { min-height: 44px; display: inline-flex !important; align-items: center; font-size: 15px !important; }
+    .faq-answer { font-size: 15px !important; line-height: 1.65 !important; }
+    .faq-question { font-size: 15px !important; }
+    .benefit-desc, .benefit-description, .why-card p { font-size: 15px !important; line-height: 1.6 !important; }
+
+    /* Footer: bigger text and taller links */
+    .footer-services-list li { margin-bottom: 0 !important; }
+    .footer-services-list a { display: block !important; padding: 11px 0; font-size: 15px; }
+    .footer-secondary-group, .footer-secondary-group span,
+    .copyright-group, .copyright-group span { font-size: 13px !important; line-height: 1.7 !important; }
+    .footer-address a, .footer-legal-links a { display: inline-block; padding: 8px 2px; }
+    .footer-legal-links { font-size: 14px; }
+}
+
+/* #14 Phones: remove the empty band above the footer */
+@media (max-width: 500px) {
+    .footer-section { padding-top: 24px !important; }
+}
+
+/* Screen-reader-only text (#15 newsletter label) */
+.sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* #8 Tap/click targets at all sizes: at least 24px tall (WCAG 2.2 AA) */
+.footer-services-list a { padding-top: 2px; padding-bottom: 2px; }
+.footer-address a, .footer-legal-links a { display: inline-block; padding: 4px 0; }
+.main-header .nav-link { padding-top: 4px; padding-bottom: 4px; }
+.hero-cta-secondary { display: inline-block; padding: 4px 0; }
+.contact-phone-links a { display: block; padding: 4px 0; }
+.back-link { min-height: 32px; }
+
+.notfound-links a { display: inline-block; padding: 10px 4px; }
