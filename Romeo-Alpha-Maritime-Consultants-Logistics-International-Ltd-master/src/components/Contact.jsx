@@ -139,7 +139,7 @@ const Contact = () => {
                         </div>
                         <div className="strip-text">
                             <h3>{t('Inbox Heading')}</h3>
-                            <p className="contact-phone-links"><a href="mailto:info@romeoalphamaritime.com">info@romeoalphamaritime.com</a><a href="mailto:Kyoyan99@yahoo.com">Kyoyan99@yahoo.com</a></p>
+                            <p className="contact-phone-links"><a href="mailto:info@romeoalphamaritime.com">info@romeoalphamaritime.com</a><a href="mailto:kyohan99@yahoo.com">kyohan99@yahoo.com</a></p>
                             <span className="cta-text">{t('Email Us CTA')}</span>
                         </div>
                     </div>
