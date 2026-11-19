@@ -1202,3 +1202,9 @@ textarea {
         gap: 24px;
     }
 }
+/* Listing detail pages now show the site header: keep content clear of it */
+.marketplace-detail-page,
+.detail-loading-container,
+.detail-error-container {
+    padding-top: 128px;
+}

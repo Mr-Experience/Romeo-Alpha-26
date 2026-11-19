@@ -4,6 +4,7 @@ import { useTranslation } from '../context/TranslationContext';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'iconsax-react';
 import { Shield, Lock, Eye } from 'iconsax-react';
+import ServiceExtra from './ServiceExtra';
 import SEO, { serviceSchema } from './SEO';
 
 const SCHEMA = serviceSchema({
@@ -66,6 +67,8 @@ const ServiceSecurity = () => {
                             </div>
                         </li>
                     </ul>
+
+                    <ServiceExtra name="Security" />
 
                     <div className="service-gallery">
                         <img src="/images/security-escort.webp" alt={t('Tag Security')} />

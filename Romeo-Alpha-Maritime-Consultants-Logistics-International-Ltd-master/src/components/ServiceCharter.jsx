@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from '../context/TranslationContext';
 import { ArrowLeft } from 'iconsax-react';
 import { Clock, Location, Chart1 } from 'iconsax-react';
+import ServiceExtra from './ServiceExtra';
 import SEO, { serviceSchema } from './SEO';
 
 const SCHEMA = serviceSchema({
@@ -66,6 +67,8 @@ const ServiceCharter = () => {
                             </div>
                         </li>
                     </ul>
+
+                    <ServiceExtra name="Charter" />
 
                     <div className="service-gallery">
                         <img src="/images/bottom-1.webp" alt={t('Tag Charter')} />
