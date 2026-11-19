@@ -58,7 +58,7 @@ const AppContentWithLocation = () => {
 
   return (
     <div className="page-wrapper">
-      {!isDashboard && !isMarketplaceDetail && !isMarketplaceInquiry && <Header />}
+      {!isDashboard && !isMarketplaceInquiry && <Header />}
       <main id="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -85,7 +85,7 @@ const AppContentWithLocation = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      {!isLogin && !isDashboard && !isMarketplaceDetail && !isMarketplaceInquiry && <Footer />}
+      {!isLogin && !isDashboard && !isMarketplaceInquiry && <Footer />}
       {!isLogin && !isDashboard && <WhatsAppButton />}
       {!isLogin && !isDashboard && <CookieConsent />}
     </div>

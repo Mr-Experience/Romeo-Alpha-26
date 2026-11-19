@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from '../context/TranslationContext';
 import { ArrowLeft } from 'iconsax-react';
 import { Activity, Setting2, Layer } from 'iconsax-react';
+import ServiceExtra from './ServiceExtra';
 import SEO, { serviceSchema } from './SEO';
 
 const SCHEMA = serviceSchema({
@@ -66,6 +67,8 @@ const ServiceOffshore = () => {
                             </div>
                         </li>
                     </ul>
+
+                    <ServiceExtra name="Offshore" />
 
                     <div className="service-gallery">
                         <img src="/images/bottom-2.webp" alt={t('Tag Offshore')} />
