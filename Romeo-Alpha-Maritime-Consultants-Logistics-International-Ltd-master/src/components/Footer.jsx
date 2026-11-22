@@ -46,7 +46,9 @@ const Footer = () => {
                     <h3>{t('Footer Subscribe Heading')}</h3>
                     <form className="footer-newsletter-form" onSubmit={handleSubmit}>
                         <div className="input-group">
+                            <label htmlFor="newsletter-email" className="sr-only">{t('Form Email')}</label>
                             <input
+                                id="newsletter-email"
                                 type="email"
                                 placeholder={t('Email Placeholder')}
                                 value={email}

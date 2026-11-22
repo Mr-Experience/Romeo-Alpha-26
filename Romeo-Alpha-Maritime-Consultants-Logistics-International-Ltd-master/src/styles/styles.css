@@ -78,9 +78,13 @@ body {
 .banner-closed .operation-detail-page,
 .banner-closed .marketplace-page,
 .banner-closed .careers-page,
-.banner-closed .team-page {
+.banner-closed .team-page,
+.banner-closed .marketplace-detail-page,
+.banner-closed .detail-loading-container,
+.banner-closed .detail-error-container {
     padding-top: 80px !important;
 }
+.banner-closed .legal-page { padding-top: 112px; }
 
 
 
@@ -3199,3 +3203,8 @@ body {
 .service-extra .service-description { margin-bottom: 16px; }
 .service-extra-list { margin: 12px 0 8px; padding-left: 20px; line-height: 1.7; color: #4A5568; }
 .service-extra-list li { margin-bottom: 8px; }
+
+/* Stat strip now holds words ("Gulf of Guinea"), not just numbers: keep each on one line */
+@media (min-width: 769px) {
+    .proof-number { white-space: nowrap; font-size: clamp(30px, 3.2vw, 48px); }
+}

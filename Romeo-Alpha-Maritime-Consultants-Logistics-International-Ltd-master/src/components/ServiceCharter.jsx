@@ -31,6 +31,7 @@ const ServiceCharter = () => {
                     <Link to="/" className="back-link"><ArrowLeft size="16" color="#ffffff" /> {t('Home')}</Link>
                     <h1>{t('Tag Charter')}</h1>
                     <p>{t('Service 4 Desc')}</p>
+                    <Link to="/contact?service=charter" className="service-hero-cta" data-track="quote" data-track-label="service_hero_charter">{t('Service CTA Charter')}</Link>
                 </div>
             </div>
 
@@ -68,7 +69,7 @@ const ServiceCharter = () => {
                         </li>
                     </ul>
 
-                    <ServiceExtra name="Charter" />
+                    <ServiceExtra name="Charter" service="charter" />
 
                     <div className="service-gallery">
                         <img src="/images/bottom-1.webp" alt={t('Tag Charter')} />
@@ -79,8 +80,8 @@ const ServiceCharter = () => {
                         <h3>{t('Banner Heading')}</h3>
                         <p>{t('Banner Subtext')}</p>
                         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <Link to="/contact" style={{ textDecoration: 'none' }}>
-                                <button className="standard-btn" style={{ padding: '0 32px', width: 'auto', minWidth: '160px' }}>{t('Banner Button')}</button>
+                            <Link to="/contact?service=charter" style={{ textDecoration: 'none' }} data-track="quote" data-track-label="service_banner_charter">
+                                <button className="standard-btn" style={{ padding: '0 32px', width: 'auto', minWidth: '160px' }}>{t('Service CTA Charter')}</button>
                             </Link>
                             <Link to="/marketplace" style={{ textDecoration: 'none' }}>
                                 <button className="standard-btn" style={{ padding: '0 32px', width: 'auto', minWidth: '160px', backgroundColor: 'transparent', border: '2px solid #ffffff', color: '#ffffff' }}>{t('Marketplace')}</button>

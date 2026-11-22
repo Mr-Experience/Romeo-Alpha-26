@@ -7,52 +7,8 @@ const getMockData = () => {
         const stored = localStorage.getItem('mock_marketplace_items');
         if (stored) return JSON.parse(stored);
 
-        const initial = [
-            {
-                id: 'mock-initial-1',
-                category: 'sale',
-                title: 'Premium Marine Cargo Vessel',
-                description: 'High-capacity cargo container vessel in excellent operational condition. Equipped with modern navigation systems, efficient propulsion, and certified cargo holds. Fully vetted and ready for international transit.',
-                gallery: ['/images/ads-gallery-1.webp', '/images/ads-gallery-2.webp'],
-                price: '1250000',
-                location: 'Immediate',
-                created_at: new Date(Date.now() - 36000000).toISOString(),
-                is_active: true
-            },
-            {
-                id: 'mock-initial-2',
-                category: 'sale',
-                title: 'Bala Mulu Escort Vessel',
-                description: 'Fast marine security escort vessel equipped with radar, defense communication systems, and high-speed twin diesel engines. Ideal for offshore support, crew changes, and naval patrol duties.',
-                gallery: ['/images/security-escort.webp', '/images/security-patrol.webp'],
-                price: '780000',
-                location: 'Immediate',
-                created_at: new Date(Date.now() - 72000000).toISOString(),
-                is_active: true
-            },
-            {
-                id: 'mock-initial-3',
-                category: 'hire',
-                title: 'Offshore Tug Support Vessel',
-                description: 'High-bollard pull tugboat suitable for offshore oil rig towing, positioning, and supply logistics. Features robust winch systems, fire-fighting monitors, and ample deck space.',
-                gallery: ['/images/ads-gallery-2.webp', '/images/ads-gallery-3.webp'],
-                price: '15000',
-                location: 'In 2 weeks',
-                created_at: new Date(Date.now() - 172800000).toISOString(),
-                is_active: true
-            },
-            {
-                id: 'mock-initial-4',
-                category: 'scrap',
-                title: 'Scrap Steel Cargo Hull',
-                description: 'Decommissioned heavy steel bulk carrier hull ready for dismantling and recycling. Offers high-grade marine steel plating and structures. Available for towing to shipyard.',
-                gallery: ['/images/ads-gallery-3.webp'],
-                price: '45000',
-                location: 'Immediate',
-                created_at: new Date(Date.now() - 259200000).toISOString(),
-                is_active: true
-            }
-        ];
+        // No built-in sample listings: visitors must only ever see real listings (audit #1)
+        const initial = [];
         localStorage.setItem('mock_marketplace_items', JSON.stringify(initial));
         return initial;
     } catch {
@@ -92,7 +48,7 @@ export const fetchMarketplaceItems = async () => {
         if (response.ok) {
             data = await response.json();
         } else {
-            console.warn("Failed to fetch live marketplace items, falling back to mock only");
+            throw new Error(`Marketplace request failed (${response.status})`);
         }
 
         // Apply mock overlays if we are in mock session
@@ -122,8 +78,8 @@ export const fetchMarketplaceItems = async () => {
         return data;
     } catch (error) {
         console.error("Error fetching marketplace items:", error);
-        // Fallback to mock data on error so the marketplace page isn't blank
-        return getMockData().filter(item => !item._deleted);
+        // Never fall back to sample data for visitors; let the page show a load error instead
+        throw error;
     }
 };
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../context/TranslationContext';
 import SEO from './SEO';
 import '../styles/contact.css';
@@ -13,6 +13,22 @@ const Contact = () => {
     const { t } = useTranslation();
     const { notify } = useNotification();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const location = useLocation();
+    // Service options for the request form; ?service=<value> pre-selects one (audit #5)
+    const SERVICE_OPTIONS = [
+        ['charter', 'Service Opt Charter'],
+        ['sale', 'Service Opt Sale'],
+        ['security', 'Service Opt Security'],
+        ['offshore', 'Service Opt Offshore'],
+        ['transport', 'Service Opt Transport'],
+        ['repair', 'Service Opt Repair'],
+        ['construction', 'Service Opt Construction'],
+        ['other', 'Service Opt Other'],
+    ];
+    const presetService = (() => {
+        const v = new URLSearchParams(location.search).get('service');
+        return SERVICE_OPTIONS.some(([key]) => key === v) ? v : '';
+    })();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -24,12 +40,25 @@ const Contact = () => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
+        // Fold the request details into the message so the email template and the
+        // dashboard need no changes; the subject is built from the chosen service.
+        const serviceLabel = (SERVICE_OPTIONS.find(([key]) => key === data.service) || [null, 'Service Opt Other'])[1];
+        const details = [
+            [t('Form Service'), t(serviceLabel)],
+            [t('Form Phone'), data.phone],
+            [t('Form Location'), data.location],
+            [t('Form Start Date'), data.start_date],
+            [t('Form Duration'), data.duration],
+        ].filter(([, v]) => v && String(v).trim()).map(([k, v]) => `${k}: ${v}`).join('\n');
+        const subject = `${t(serviceLabel)} - ${data.name}`;
+        const fullMessage = `${details}\n\n${data.message}`;
+
         // Map form fields to Supabase column names
         const payload = {
             full_name: data.name,
             email: data.email,
-            subject: data.subject,
-            message: data.message
+            subject,
+            message: fullMessage
         };
 
         setIsSubmitting(true);
@@ -45,8 +74,8 @@ const Contact = () => {
                 {
                     name: data.name,
                     email: data.email,
-                    subject: data.subject,
-                    message: data.message,
+                    subject,
+                    message: fullMessage,
                     time: new Date().toLocaleString(),
                     to_email: 'info@romeoalphamaritime.com'
                 },
@@ -162,12 +191,35 @@ const Contact = () => {
                                 <input type="email" id="email" name="email" placeholder={t('Email Placeholder')} required />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="subject">{t('Form Subject')}</label>
-                                <input type="text" id="subject" name="subject" placeholder={t('Placeholder Subject')} required />
+                                <label htmlFor="phone">{t('Form Phone')} <span className="form-optional">{t('Form Optional')}</span></label>
+                                <input type="tel" id="phone" name="phone" placeholder={t('Placeholder Phone')} autoComplete="tel" />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="message">{t('Form Message')}</label>
-                                <textarea id="message" name="message" rows="5" placeholder={t('Placeholder Message')} required></textarea>
+                                <label htmlFor="service">{t('Form Service')}</label>
+                                <select id="service" name="service" required defaultValue={presetService} key={presetService}>
+                                    <option value="" disabled>{t('Form Service Choose')}</option>
+                                    {SERVICE_OPTIONS.map(([key, label]) => (
+                                        <option key={key} value={key}>{t(label)}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="form-row-2">
+                                <div className="form-group">
+                                    <label htmlFor="location">{t('Form Location')} <span className="form-optional">{t('Form Optional')}</span></label>
+                                    <input type="text" id="location" name="location" placeholder={t('Placeholder Location')} />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="start_date">{t('Form Start Date')} <span className="form-optional">{t('Form Optional')}</span></label>
+                                    <input type="date" id="start_date" name="start_date" />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="duration">{t('Form Duration')} <span className="form-optional">{t('Form Optional')}</span></label>
+                                <input type="text" id="duration" name="duration" placeholder={t('Placeholder Duration')} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="message">{t('Form Details')}</label>
+                                <textarea id="message" name="message" rows="5" placeholder={t('Placeholder Details')} required></textarea>
                             </div>
                             <div className="contact-form-footer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', marginTop: '10px' }}>
                                 <button type="submit" className="btn-submit" disabled={isSubmitting} style={{ marginTop: 0 }}>
@@ -192,6 +244,7 @@ const Contact = () => {
                                     </a>
                                 </div>
                             </div>
+                            <p className="form-trust">{t('Form Trust')}</p>
                         </form>
                     </div>
 

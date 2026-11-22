@@ -30,6 +30,7 @@ import { startAnalytics, trackPageView } from './lib/analytics';
 // Import legacy styles (now in src/styles)
 import './styles/styles.css';
 import './styles/footer_styles.css';
+import './styles/audit-fixes.css';
 
 
 function App() {

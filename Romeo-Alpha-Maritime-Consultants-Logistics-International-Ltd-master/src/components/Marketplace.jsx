@@ -4,6 +4,7 @@ import { useTranslation } from '../context/TranslationContext';
 import SEO from './SEO';
 import '../styles/operations.css';
 import { fetchMarketplaceItems } from '../services/marketplace';
+import { config } from '../config';
 import { formatPrice } from '../utils/format';
 
 const FALLBACK_IMAGE = '/images/hero-v3.webp';
@@ -14,6 +15,7 @@ const Marketplace = () => {
     const location = useLocation();
     const [activeCategory, setActiveCategory] = useState('sale');
     const [allOps, setAllOps] = useState([]);
+    const [loadError, setLoadError] = useState(false);
     const pollRef = useRef(null);
 
     // Image error handler — swap broken src to local fallback
@@ -40,9 +42,11 @@ const Marketplace = () => {
             }));
 
             setAllOps(mappedDynamic);
+            setLoadError(false);
         } catch (err) {
             console.error("Error loading live marketplace items:", err);
-            if (!silent) setAllOps([]);
+            // Keep whatever real listings are already on screen; only show the error when there are none
+            if (!silent) setLoadError(true);
         }
     }, [t]);
 
@@ -169,7 +173,16 @@ const Marketplace = () => {
                             </div>
                         ))}
                     </div>
-                    {filteredOps.length === 0 && (
+                    {filteredOps.length === 0 && loadError && allOps.length === 0 && (
+                        <div className="no-results">
+                            <p>{t('Marketplace Load Error')}</p>
+                            <div className="no-results-actions">
+                                <button type="button" className="op-card-cta" onClick={() => loadMarketplace()}>{t('Try Again')}</button>
+                                <a className="op-card-cta" href={`https://wa.me/${config.whatsappNumber}`} target="_blank" rel="noopener noreferrer">{t('WhatsApp Us')}</a>
+                            </div>
+                        </div>
+                    )}
+                    {filteredOps.length === 0 && !(loadError && allOps.length === 0) && (
                         <div className="no-results">
                             <p>{t('No Results')}</p>
                         </div>

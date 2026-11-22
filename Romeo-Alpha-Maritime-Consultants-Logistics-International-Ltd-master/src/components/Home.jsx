@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from '../context/TranslationContext';
 import { fetchFaqs } from '../services/faq';
 import { fetchAds } from '../services/ads';
+import { config } from '../config';
 import SEO from './SEO';
 
 const Home = () => {
@@ -67,6 +68,7 @@ const Home = () => {
                         <Link to="/contact" className="hero-cta" data-track="quote" data-track-label="hero_request_vessel">{t('Hero CTA Primary')}</Link>
                         <Link to="/marketplace" className="hero-cta-secondary" data-track-label="hero_browse_vessels">{t('Hero CTA Secondary')}</Link>
                     </div>
+                    <p className="hero-trust">{t('Hero Trust')}</p>
                 </div>
             </section>
 
@@ -83,21 +85,21 @@ const Home = () => {
                     <div className="panel-item">
                         <h2 className="panel-title">{t('Quick Repair Title')}</h2>
                         <p className="panel-description">{t('Quick Repair Desc')}</p>
-                        <Link to="/marketplace?category=repair" className="panel-button-solid">
+                        <Link to="/contact?service=repair" className="panel-button-solid">
                             {t('Quick Repair Btn')}
                         </Link>
                     </div>
                     <div className="panel-item">
                         <h2 className="panel-title">{t('Quick Construction Title')}</h2>
                         <p className="panel-description">{t('Quick Construction Desc')}</p>
-                        <Link to="/contact" className="panel-button-solid">
+                        <Link to="/contact?service=construction" className="panel-button-solid">
                             {t('Quick Construction Btn')}
                         </Link>
                     </div>
                     <div className="panel-item">
                         <h2 className="panel-title">{t('Quick Servicing Title')}</h2>
                         <p className="panel-description">{t('Quick Servicing Desc')}</p>
-                        <Link to="/contact" className="panel-button-solid">
+                        <Link to="/contact?service=offshore" className="panel-button-solid">
                             {t('Quick Servicing Btn')}
                         </Link>
                     </div>
@@ -113,7 +115,7 @@ const Home = () => {
                             <p className="upper-subtext">{t('Content Subtext')}</p>
                         </div>
                         <div className="upper-image-placeholder">
-                            <img src="/images/shipping-logistics.webp" alt={t('Tag Marine')} className="content-image" width="800" height="600" loading="lazy" decoding="async" />
+                            <img src="/images/shipping-logistics.webp" srcSet="/images/shipping-logistics-640.webp 640w, /images/shipping-logistics.webp 1024w" sizes="(max-width: 768px) 100vw, 50vw" alt={t('Tag Marine')} className="content-image" width="800" height="600" loading="lazy" decoding="async" />
                             <div className="image-shadow"></div>
                             <div className="image-overlay-text" dangerouslySetInnerHTML={{ __html: t('Overlay Maritime') }}></div>
                             <Link to="/service/maritime" className="overlay-button-link">
@@ -123,7 +125,7 @@ const Home = () => {
                     </div>
                     <div className="content-lower">
                         <div className="lower-image-container" id="charter">
-                            <img src="/images/bottom-1.webp" alt={t('Tag Charter')} className="lower-content-image" width="600" height="450" loading="lazy" decoding="async" />
+                            <img src="/images/bottom-1.webp" srcSet="/images/bottom-1-640.webp 640w, /images/bottom-1.webp 1024w" sizes="(max-width: 768px) 100vw, 33vw" alt={t('Tag Charter')} className="lower-content-image" width="600" height="450" loading="lazy" decoding="async" />
                             <div className="image-shadow"></div>
                             <div className="image-overlay-text" dangerouslySetInnerHTML={{ __html: t('Overlay Charter') }}></div>
                             <Link to="/service/charter" className="overlay-button-link">
@@ -131,7 +133,7 @@ const Home = () => {
                             </Link>
                         </div>
                         <div className="lower-image-container" id="offshore">
-                            <img src="/images/bottom-2.webp" alt={t('Tag Offshore')} className="lower-content-image" width="600" height="450" loading="lazy" decoding="async" />
+                            <img src="/images/bottom-2.webp" srcSet="/images/bottom-2-640.webp 640w, /images/bottom-2.webp 1024w" sizes="(max-width: 768px) 100vw, 33vw" alt={t('Tag Offshore')} className="lower-content-image" width="600" height="450" loading="lazy" decoding="async" />
                             <div className="image-shadow"></div>
                             <div className="image-overlay-text" dangerouslySetInnerHTML={{ __html: t('Overlay Offshore') }}></div>
                             <Link to="/service/offshore" className="overlay-button-link">
@@ -139,7 +141,7 @@ const Home = () => {
                             </Link>
                         </div>
                         <div className="lower-image-container" id="security">
-                            <img src="/images/security-escort.webp" alt={t('Tag Security')} className="lower-content-image" width="665" height="665" loading="lazy" decoding="async" />
+                            <img src="/images/security-escort.webp" srcSet="/images/security-escort-640.webp 640w, /images/security-escort.webp 1024w" sizes="(max-width: 768px) 100vw, 33vw" alt={t('Tag Security')} className="lower-content-image" width="665" height="665" loading="lazy" decoding="async" />
                             <div className="image-shadow"></div>
                             <div className="image-overlay-text" dangerouslySetInnerHTML={{ __html: t('Overlay Security') }}></div>
                             <Link to="/service/security" className="overlay-button-link">
@@ -273,6 +275,18 @@ const Home = () => {
                     </div>
                 </section>
             )}
+
+            {/* Closing call to action (audit #17) */}
+            <section className="closing-cta-section">
+                <div className="closing-cta-box">
+                    <h2>{t('Closing CTA Heading')}</h2>
+                    <p>{t('Closing CTA Text')}</p>
+                    <div className="closing-cta-actions">
+                        <Link to="/contact" className="closing-cta-primary" data-track="quote" data-track-label="home_closing_quote">{t('Hero CTA Primary')}</Link>
+                        <a href={`https://wa.me/${config.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="closing-cta-secondary" data-track-label="home_closing_whatsapp">{t('WhatsApp Us')}</a>
+                    </div>
+                </div>
+            </section>
 
         </div>
     );

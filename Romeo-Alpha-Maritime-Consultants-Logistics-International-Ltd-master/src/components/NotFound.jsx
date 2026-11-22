@@ -8,7 +8,7 @@ const NotFound = () => (
         <div>
             <h1>Page not found</h1>
             <p style={{ margin: '12px 0 24px' }}>The page you are looking for has moved or does not exist.</p>
-            <p>
+            <p className="notfound-links">
                 <Link to="/">Go to the homepage</Link> · <Link to="/marketplace">Browse the marketplace</Link> · <Link to="/contact">Contact us</Link>
             </p>
         </div>

@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from '../context/TranslationContext';
 
 // Extra written content for a service page, read from 'SX <Name> ...' translation keys.
 // Layout: H1, P1, P2, H2 + list (L1..L6), H3, P3, P4.
-const ServiceExtra = ({ name }) => {
+const ServiceExtra = ({ name, service }) => {
     const { t } = useTranslation();
     const k = (suffix) => `SX ${name} ${suffix}`;
     const has = (suffix) => t(k(suffix)) !== k(suffix);
@@ -21,6 +22,7 @@ const ServiceExtra = ({ name }) => {
             <h3>{t(k('H3'))}</h3>
             <p className="service-description">{t(k('P3'))}</p>
             <p className="service-description">{t(k('P4'))}</p>
+            <Link to={`/contact?service=${service}`} className="service-inline-cta" data-track="quote" data-track-label={`service_inline_${service}`}>{t(`Service CTA ${name}`)}</Link>
         </section>
     );
 };

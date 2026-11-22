@@ -32,6 +32,11 @@ const Header = () => {
         setMobileMenuOpen(false);
     }, [location]);
 
+    // The welcome bar was removed (audit #9); keep the layout in its compact, bar-free state
+    useEffect(() => {
+        document.body.classList.add('banner-closed');
+    }, []);
+
     // Lock body scroll when mobile menu is open
     useEffect(() => {
         if (mobileMenuOpen) {
@@ -58,21 +63,6 @@ const Header = () => {
 
     return (
         <>
-            <div className="floating-notice">
-                <div className="notice-content">
-                    <span className="notice-text">
-                        {t('Notice Welcome')}
-                    </span>
-                    <div className="close-icon-container" onClick={() => {
-                        document.body.classList.add('banner-closed');
-                    }}>
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 3L3 9M3 3L9 9" stroke="#6B82AC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
             <header className="main-header">
                 <div className="header-left">
                     <Link to="/">
@@ -108,6 +98,7 @@ const Header = () => {
                         </div>
                     </div>
                     <button className="btn-get-quotes desktop-cta" onClick={() => navigate('/contact')}>{t('Get Quotes')}</button>
+                    <button className="btn-get-quotes phone-cta" data-track="quote" data-track-label="header_phone_quote" onClick={() => navigate('/contact')}>{t('Get Quote Short')}</button>
                 </div>
 
                 <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
